@@ -1,3 +1,4 @@
+using Toybox.Application;
 using Toybox.WatchUi as Ui;
 using Toybox.Graphics as Gfx;
 
@@ -47,7 +48,7 @@ class HCUView extends Ui.DataField {
     //! information. Calculate a value and save it locally in this method.
     function compute(info) {
         // See Activity.Info in the documentation for available information.
-        mValue = 1.0;
+        mValue = info.calories / 100;
     }
 
     //! Display the value you computed here. This will be called
