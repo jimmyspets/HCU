@@ -1,153 +1,370 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <debugInfo>
 <pcToLineNum>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="8" pc="268435458" symbol="initialize"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="16" pc="268435479" symbol="onLayout"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="19" pc="268435498" symbol="onLayout"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="20" pc="268435521" symbol="onLayout"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="24" pc="268435590" symbol="onLayout"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="28" pc="268435659" symbol="onLayout"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="32" pc="268435728" symbol="onLayout"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="36" pc="268435774" symbol="onLayout"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="37" pc="268435817" symbol="onLayout"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="38" pc="268435841" symbol="onLayout"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="39" pc="268435863" symbol="onLayout"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="40" pc="268435887" symbol="onLayout"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="43" pc="268435909" symbol="onLayout"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="44" pc="268435961" symbol="onLayout"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="51" pc="268435967" symbol="compute"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="58" pc="268435992" symbol="onUpdate"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="61" pc="268436035" symbol="onUpdate"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="62" pc="268436059" symbol="onUpdate"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="63" pc="268436086" symbol="onUpdate"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="65" pc="268436113" symbol="onUpdate"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="67" pc="268436137" symbol="onUpdate"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="70" pc="268436171" symbol="onUpdate"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="10" pc="268436194" symbol="initialize"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="14" pc="268436215" symbol="initialize"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="18" pc="268436238" symbol="setColor"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="22" pc="268436251" symbol="draw"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="23" pc="268436283" symbol="draw"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUApp.mc" lineNum="6" pc="268436298" symbol="initialize"/>
-<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUApp.mc" lineNum="19" pc="268436325" symbol="getInitialView"/>
-<entry filename="Rez" lineNum="20" pc="268436365" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="21" pc="268436390" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="22" pc="268436417" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="24" pc="268436433" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="25" pc="268436447" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="26" pc="268436544" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="27" pc="268436559" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="28" pc="268436611" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="29" pc="268436657" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="30" pc="268436671" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="31" pc="268436768" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="32" pc="268436783" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="33" pc="268436835" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="34" pc="268436881" symbol="MainLayout"/>
-<entry filename="Rez" lineNum="44" pc="268436921" symbol="TopLeftLayout"/>
-<entry filename="Rez" lineNum="45" pc="268436946" symbol="TopLeftLayout"/>
-<entry filename="Rez" lineNum="46" pc="268436973" symbol="TopLeftLayout"/>
-<entry filename="Rez" lineNum="48" pc="268436989" symbol="TopLeftLayout"/>
-<entry filename="Rez" lineNum="49" pc="268437003" symbol="TopLeftLayout"/>
-<entry filename="Rez" lineNum="50" pc="268437126" symbol="TopLeftLayout"/>
-<entry filename="Rez" lineNum="51" pc="268437140" symbol="TopLeftLayout"/>
-<entry filename="Rez" lineNum="52" pc="268437263" symbol="TopLeftLayout"/>
-<entry filename="Rez" lineNum="62" pc="268437303" symbol="TopRightLayout"/>
-<entry filename="Rez" lineNum="63" pc="268437328" symbol="TopRightLayout"/>
-<entry filename="Rez" lineNum="64" pc="268437355" symbol="TopRightLayout"/>
-<entry filename="Rez" lineNum="66" pc="268437371" symbol="TopRightLayout"/>
-<entry filename="Rez" lineNum="67" pc="268437385" symbol="TopRightLayout"/>
-<entry filename="Rez" lineNum="68" pc="268437508" symbol="TopRightLayout"/>
-<entry filename="Rez" lineNum="69" pc="268437522" symbol="TopRightLayout"/>
-<entry filename="Rez" lineNum="70" pc="268437645" symbol="TopRightLayout"/>
-<entry filename="Rez" lineNum="80" pc="268437685" symbol="BottomLeftLayout"/>
-<entry filename="Rez" lineNum="81" pc="268437710" symbol="BottomLeftLayout"/>
-<entry filename="Rez" lineNum="82" pc="268437737" symbol="BottomLeftLayout"/>
-<entry filename="Rez" lineNum="84" pc="268437753" symbol="BottomLeftLayout"/>
-<entry filename="Rez" lineNum="85" pc="268437767" symbol="BottomLeftLayout"/>
-<entry filename="Rez" lineNum="86" pc="268437890" symbol="BottomLeftLayout"/>
-<entry filename="Rez" lineNum="87" pc="268437904" symbol="BottomLeftLayout"/>
-<entry filename="Rez" lineNum="88" pc="268438027" symbol="BottomLeftLayout"/>
-<entry filename="Rez" lineNum="98" pc="268438067" symbol="BottomRightLayout"/>
-<entry filename="Rez" lineNum="99" pc="268438092" symbol="BottomRightLayout"/>
-<entry filename="Rez" lineNum="100" pc="268438119" symbol="BottomRightLayout"/>
-<entry filename="Rez" lineNum="102" pc="268438135" symbol="BottomRightLayout"/>
-<entry filename="Rez" lineNum="103" pc="268438149" symbol="BottomRightLayout"/>
-<entry filename="Rez" lineNum="104" pc="268438272" symbol="BottomRightLayout"/>
-<entry filename="Rez" lineNum="105" pc="268438286" symbol="BottomRightLayout"/>
-<entry filename="Rez" lineNum="106" pc="268438409" symbol="BottomRightLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="43" pc="268435458" symbol="initialize"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="51" pc="268435479" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="53" pc="268435491" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="54" pc="268435522" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="55" pc="268435553" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="56" pc="268435587" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="57" pc="268435612" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="64" pc="268435618" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="65" pc="268435631" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="67" pc="268435660" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="70" pc="268435678" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="71" pc="268435710" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="72" pc="268435742" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="73" pc="268435774" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="74" pc="268435806" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="75" pc="268435838" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="76" pc="268435870" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="77" pc="268435902" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="78" pc="268435934" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="79" pc="268435948" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="80" pc="268435962" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="86" pc="268435981" symbol="onUpdate"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="87" pc="268435995" symbol="onUpdate"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="88" pc="268436009" symbol="onUpdate"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="89" pc="268436023" symbol="onUpdate"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="92" pc="268436040" symbol="populateConfigFromDeviceSettings"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="93" pc="268436082" symbol="populateConfigFromDeviceSettings"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="94" pc="268436124" symbol="populateConfigFromDeviceSettings"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="103" pc="268436156" symbol="drawGrid"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="104" pc="268436182" symbol="drawGrid"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="105" pc="268436199" symbol="drawGrid"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="106" pc="268436237" symbol="drawGrid"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="107" pc="268436275" symbol="drawGrid"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="108" pc="268436313" symbol="drawGrid"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="111" pc="268436333" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="112" pc="268436359" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="113" pc="268436402" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="114" pc="268436445" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="116" pc="268436519" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="117" pc="268436562" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="118" pc="268436605" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="120" pc="268436648" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="121" pc="268436691" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="122" pc="268436734" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="124" pc="268436777" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="126" pc="268436803" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="127" pc="268436820" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="128" pc="268436820" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="129" pc="268436831" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="130" pc="268436907" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="131" pc="268436914" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="133" pc="268436927" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="134" pc="268437014" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="135" pc="268437046" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="137" pc="268437056" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="138" pc="268437097" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="140" pc="268437140" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="141" pc="268437219" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="142" pc="268437295" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="144" pc="268437360" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="145" pc="268437439" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="146" pc="268437518" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="148" pc="268437583" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="149" pc="268437662" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="150" pc="268437741" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="154" pc="268437823" symbol="txtVsOutline"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="155" pc="268437849" symbol="txtVsOutline"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="156" pc="268437874" symbol="txtVsOutline"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="157" pc="268437899" symbol="txtVsOutline"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="158" pc="268437924" symbol="txtVsOutline"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="159" pc="268437949" symbol="txtVsOutline"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="160" pc="268437965" symbol="txtVsOutline"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="164" pc="268437990" symbol="setColor"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="176" pc="268438019" symbol="drawGps"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="177" pc="268438036" symbol="drawGps"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="179" pc="268438116" symbol="drawGps"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="181" pc="268438196" symbol="drawGps"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="183" pc="268438259" symbol="drawGps"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="188" pc="268438322" symbol="drawGpsSign"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="189" pc="268438358" symbol="drawGpsSign"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="190" pc="268438396" symbol="drawGpsSign"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="191" pc="268438422" symbol="drawGpsSign"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="193" pc="268438454" symbol="drawGpsSign"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="194" pc="268438490" symbol="drawGpsSign"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="195" pc="268438528" symbol="drawGpsSign"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="196" pc="268438554" symbol="drawGpsSign"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="198" pc="268438592" symbol="drawGpsSign"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="199" pc="268438628" symbol="drawGpsSign"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="200" pc="268438666" symbol="drawGpsSign"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="201" pc="268438692" symbol="drawGpsSign"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="205" pc="268438733" symbol="drawBattery"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="206" pc="268438740" symbol="drawBattery"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="208" pc="268438747" symbol="drawBattery"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="209" pc="268438773" symbol="drawBattery"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="210" pc="268438799" symbol="drawBattery"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="211" pc="268438837" symbol="drawBattery"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="212" pc="268438875" symbol="drawBattery"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="213" pc="268438901" symbol="drawBattery"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="214" pc="268438947" symbol="drawBattery"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="224" pc="268439004" symbol="calcNullable"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="225" pc="268439011" symbol="calcNullable"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="227" pc="268439017" symbol="calcNullable"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="232" pc="268439023" symbol="calculateDistance"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="233" pc="268439056" symbol="calculateDistance"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="234" pc="268439091" symbol="calculateDistance"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="235" pc="268439101" symbol="calculateDistance"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="236" pc="268439114" symbol="calculateDistance"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="237" pc="268439132" symbol="calculateDistance"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="238" pc="268439139" symbol="calculateDistance"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="239" pc="268439144" symbol="calculateDistance"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="241" pc="268439154" symbol="calculateDistance"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="246" pc="268439189" symbol="calculateElapsedTime"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="247" pc="268439222" symbol="calculateElapsedTime"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="248" pc="268439225" symbol="calculateElapsedTime"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="249" pc="268439247" symbol="calculateElapsedTime"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="251" pc="268439269" symbol="calculateElapsedTime"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="252" pc="268439280" symbol="calculateElapsedTime"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="253" pc="268439290" symbol="calculateElapsedTime"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="256" pc="268439303" symbol="calculateElapsedTime"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="257" pc="268439310" symbol="calculateElapsedTime"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="259" pc="268439360" symbol="calculateElapsedTime"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="266" pc="268439413" symbol="calculateSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="267" pc="268439448" symbol="calculateSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="271" pc="268439454" symbol="computeAverageSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="272" pc="268439461" symbol="computeAverageSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="273" pc="268439480" symbol="computeAverageSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="274" pc="268439487" symbol="computeAverageSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="275" pc="268439511" symbol="computeAverageSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="276" pc="268439521" symbol="computeAverageSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="277" pc="268439531" symbol="computeAverageSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="280" pc="268439557" symbol="computeAverageSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="281" pc="268439568" symbol="computeAverageSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="283" pc="268439577" symbol="computeAverageSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="287" pc="268439586" symbol="compureAverageOneMinuteSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="288" pc="268439593" symbol="compureAverageOneMinuteSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="289" pc="268439612" symbol="compureAverageOneMinuteSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="290" pc="268439619" symbol="compureAverageOneMinuteSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="291" pc="268439643" symbol="compureAverageOneMinuteSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="292" pc="268439653" symbol="compureAverageOneMinuteSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="293" pc="268439663" symbol="compureAverageOneMinuteSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="296" pc="268439689" symbol="compureAverageOneMinuteSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="297" pc="268439700" symbol="compureAverageOneMinuteSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="299" pc="268439709" symbol="compureAverageOneMinuteSpeed"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="303" pc="268439718" symbol="getMinutesPerKmOrMile"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="304" pc="268439739" symbol="getMinutesPerKmOrMile"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="305" pc="268439749" symbol="getMinutesPerKmOrMile"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="306" pc="268439778" symbol="getMinutesPerKmOrMile"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="307" pc="268439791" symbol="getMinutesPerKmOrMile"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="308" pc="268439804" symbol="getMinutesPerKmOrMile"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="310" pc="268439847" symbol="getMinutesPerKmOrMile"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="315" pc="268439859" symbol="calculateAsc"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="319" pc="268439865" symbol="calculateAmPmHour"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="320" pc="268439876" symbol="calculateAmPmHour"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="322" pc="268439896" symbol="calculateAmPmHour"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="324" pc="268439908" symbol="calculateAmPmHour"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="338" pc="268439914" symbol="initialize"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="339" pc="268439925" symbol="initialize"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="344" pc="268439938" symbol="add"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="345" pc="268439957" symbol="add"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="350" pc="268439991" symbol="reset"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="351" pc="268440021" symbol="reset"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="353" pc="268440046" symbol="reset"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="358" pc="268440062" symbol="getData"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="10" pc="268440074" symbol="initialize"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="14" pc="268440095" symbol="initialize"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="18" pc="268440118" symbol="setColor"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="22" pc="268440131" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="23" pc="268440163" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUApp.mc" lineNum="6" pc="268440178" symbol="initialize"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUApp.mc" lineNum="19" pc="268440205" symbol="getInitialView"/>
+<entry filename="Rez" lineNum="20" pc="268440245" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="21" pc="268440270" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="22" pc="268440297" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="24" pc="268440313" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="25" pc="268440327" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="26" pc="268440424" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="27" pc="268440439" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="28" pc="268440491" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="29" pc="268440537" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="30" pc="268440551" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="31" pc="268440648" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="32" pc="268440663" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="33" pc="268440715" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="34" pc="268440761" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="44" pc="268440801" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="45" pc="268440826" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="46" pc="268440853" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="48" pc="268440869" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="49" pc="268440883" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="50" pc="268441006" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="51" pc="268441020" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="52" pc="268441143" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="62" pc="268441183" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="63" pc="268441208" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="64" pc="268441235" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="66" pc="268441251" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="67" pc="268441265" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="68" pc="268441388" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="69" pc="268441402" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="70" pc="268441525" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="80" pc="268441565" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="81" pc="268441590" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="82" pc="268441617" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="84" pc="268441633" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="85" pc="268441647" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="86" pc="268441770" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="87" pc="268441784" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="88" pc="268441907" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="98" pc="268441947" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="99" pc="268441972" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="100" pc="268441999" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="102" pc="268442015" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="103" pc="268442029" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="104" pc="268442152" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="105" pc="268442166" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="106" pc="268442289" symbol="BottomRightLayout"/>
 </pcToLineNum>
 <symbolTable>
-<entry id="8388635" module="true" symbol="Application"/>
-<entry id="11" module="true" symbol="Menus"/>
-<entry field="true" id="19" symbol="AppName"/>
-<entry field="true" id="13" symbol="LauncherIcon"/>
-<entry id="8388771" module="true" symbol="Drawables"/>
-<entry field="true" id="8388611" module="true" symbol="Toybox"/>
-<entry id="8389347" symbol="color"/>
-<entry id="12" module="true" symbol="Layouts"/>
-<entry id="8389279" method="true" symbol="onStart"/>
-<entry id="18" method="true" symbol="BottomRightLayout"/>
+<entry id="34" symbol="cal"/>
+<entry id="33" symbol="cad"/>
+<entry id="8388644" module="true" symbol="System"/>
+<entry id="60" method="true" symbol="calculateSpeed"/>
+<entry id="55" method="true" symbol="drawGpsSign"/>
+<entry field="true" id="8" symbol="model"/>
+<entry id="17" method="true" symbol="getData"/>
 <entry id="8389124" method="true" symbol="onUpdate"/>
+<entry id="63" method="true" symbol="getMinutesPerKmOrMile"/>
+<entry id="8389349" symbol="justification"/>
+<entry id="56" method="true" symbol="drawBattery"/>
+<entry id="58" method="true" symbol="calculateDistance"/>
+<entry id="64" method="true" symbol="calculateAsc"/>
+<entry id="37" symbol="pace"/>
+<entry id="22" method="true" symbol="TopLeftLayout"/>
+<entry field="true" id="8388611" module="true" symbol="Toybox"/>
+<entry id="8388645" module="true" symbol="Time"/>
+<entry id="49" symbol="avgPaceStr"/>
+<entry id="31" symbol="isDistanceUnitsMetric"/>
+<entry id="8388770" module="true" symbol="Strings"/>
+<entry field="true" id="8389138" symbol="label"/>
+<entry id="24" method="true" symbol="BottomLeftLayout"/>
+<entry id="8389280" method="true" symbol="getInitialView"/>
+<entry id="8389068" method="true" symbol="draw"/>
+<entry id="43" symbol="gpsSignal"/>
+<entry id="12" object="true" symbol="HCUApp"/>
+<entry id="21" method="true" symbol="MainLayout"/>
+<entry field="true" id="8389401" symbol="is24Hour"/>
+<entry id="9" object="true" symbol="HCUView"/>
+<entry id="8388769" module="true" symbol="Rez"/>
+<entry id="51" method="true" symbol="populateConfigFromDeviceSettings"/>
+<entry id="27" symbol="CENTER"/>
+<entry id="29" symbol="VALUE_FONT"/>
+<entry id="48" symbol="paceStr"/>
+<entry id="8389130" symbol="mColor"/>
+<entry id="8389131" method="true" symbol="setColor"/>
+<entry id="13" symbol="data"/>
+<entry id="8388702" method="true" symbol="initialize"/>
+<entry field="true" id="26" symbol="AppName"/>
+<entry id="11" object="true" symbol="Background"/>
+<entry field="true" id="20" symbol="LauncherIcon"/>
+<entry id="54" method="true" symbol="drawGps"/>
+<entry id="10" object="true" symbol="DataQueue"/>
+<entry id="39" symbol="alt"/>
 <entry id="8389281" method="true" symbol="onStop"/>
+<entry id="38" symbol="avgPace"/>
 <entry field="true" id="8389065" symbol="locY"/>
 <entry field="true" id="8389064" symbol="locX"/>
-<entry id="8389130" symbol="mColor"/>
-<entry id="8388772" module="true" symbol="Fonts"/>
+<entry id="8388771" module="true" symbol="Drawables"/>
 <entry id="8389137" method="true" symbol="compute"/>
-<entry field="true" id="8389063" symbol="identifier"/>
-<entry id="8389349" symbol="justification"/>
-<entry id="8388769" module="true" symbol="Rez"/>
-<entry id="10" object="true" symbol="HCUApp"/>
-<entry field="true" id="8389138" symbol="label"/>
-<entry id="8389348" symbol="font"/>
-<entry id="8389280" method="true" symbol="getInitialView"/>
-<entry id="8" object="true" symbol="HCUView"/>
-<entry id="9" object="true" symbol="Background"/>
-<entry id="16" method="true" symbol="TopRightLayout"/>
-<entry id="14" method="true" symbol="MainLayout"/>
+<entry id="14" symbol="maxSize"/>
 <entry id="8389122" method="true" symbol="onLayout"/>
-<entry id="8389068" method="true" symbol="draw"/>
-<entry id="20" symbol="mValue"/>
-<entry id="8388770" module="true" symbol="Strings"/>
-<entry id="17" method="true" symbol="BottomLeftLayout"/>
-<entry id="8388702" method="true" symbol="initialize"/>
-<entry id="8389131" method="true" symbol="setColor"/>
-<entry id="15" method="true" symbol="TopLeftLayout"/>
+<entry field="true" id="8388732" symbol="elapsedTime"/>
+<entry id="28" symbol="HEADER_FONT"/>
+<entry id="62" method="true" symbol="compureAverageOneMinuteSpeed"/>
+<entry id="8389279" method="true" symbol="onStart"/>
+<entry id="8388942" method="true" symbol="add"/>
+<entry id="61" method="true" symbol="computeAverageSpeed"/>
+<entry id="23" method="true" symbol="TopRightLayout"/>
+<entry id="8389348" symbol="font"/>
+<entry id="53" method="true" symbol="txtVsOutline"/>
+<entry id="8389347" symbol="color"/>
+<entry field="true" id="8388958" symbol="speed"/>
+<entry id="30" symbol="ZERO_TIME"/>
+<entry id="50" symbol="paceData"/>
+<entry id="16" method="true" symbol="reset"/>
+<entry id="40" symbol="totalAsc"/>
+<entry field="true" id="8388911" symbol="distance"/>
+<entry id="47" symbol="y2"/>
+<entry id="46" symbol="y1"/>
+<entry id="19" module="true" symbol="Layouts"/>
+<entry id="25" method="true" symbol="BottomRightLayout"/>
+<entry id="15" symbol="pos"/>
+<entry id="32" symbol="isSpeedUnitsMetric"/>
+<entry id="36" symbol="avgSpeed"/>
+<entry id="52" method="true" symbol="drawGrid"/>
+<entry field="true" id="8389063" symbol="identifier"/>
+<entry id="18" module="true" symbol="Menus"/>
+<entry id="57" method="true" symbol="calcNullable"/>
+<entry id="42" symbol="hr"/>
+<entry id="65" method="true" symbol="calculateAmPmHour"/>
+<entry id="41" symbol="totalDes"/>
+<entry id="45" symbol="y"/>
+<entry id="44" symbol="x"/>
+<entry id="8388772" module="true" symbol="Fonts"/>
+<entry id="35" symbol="temp"/>
+<entry id="59" method="true" symbol="calculateElapsedTime"/>
 </symbolTable>
 <localVars>
-<entry endPc="268435909" name="valueView" stackId="4" startPc="268435774"/>
-<entry endPc="268435909" name="labelView" stackId="3" startPc="268435774"/>
-<entry endPc="268435964" name="obscurityFlags" stackId="2" startPc="268435479"/>
-<entry endPc="268436191" name="value" stackId="2" startPc="268435992"/>
-<entry endPc="268436235" name="dictionary" stackId="1" startPc="268436194"/>
-<entry endPc="268436918" name="rez_cmp_local_label_label_font" stackId="3" startPc="268436365"/>
-<entry endPc="268436918" name="rez_cmp_local_label_value_font" stackId="6" startPc="268436365"/>
-<entry endPc="268436918" name="rez_cmp_local_label_label_fontHeight" stackId="5" startPc="268436365"/>
-<entry endPc="268436918" name="rez_cmp_local_custom_drawable_2OQJQTZMMZOFJDIUJXHQ" stackId="2" startPc="268436365"/>
-<entry endPc="268436918" name="rez_cmp_local_label_value_fontHeight" stackId="8" startPc="268436365"/>
-<entry endPc="268436918" name="rez_cmp_local_label_label" stackId="4" startPc="268436365"/>
-<entry endPc="268436918" name="rez_cmp_local_label_value" stackId="7" startPc="268436365"/>
-<entry endPc="268437300" name="rez_cmp_local_label_label_font" stackId="3" startPc="268436921"/>
-<entry endPc="268437300" name="rez_cmp_local_label_value_font" stackId="5" startPc="268436921"/>
-<entry endPc="268437300" name="rez_cmp_local_custom_drawable_TZRVS2AYKI9T2STATDIA" stackId="2" startPc="268436921"/>
-<entry endPc="268437300" name="rez_cmp_local_label_label" stackId="4" startPc="268436921"/>
-<entry endPc="268437300" name="rez_cmp_local_label_value" stackId="6" startPc="268436921"/>
-<entry endPc="268437682" name="rez_cmp_local_label_label_font" stackId="3" startPc="268437303"/>
-<entry endPc="268437682" name="rez_cmp_local_label_value_font" stackId="5" startPc="268437303"/>
-<entry endPc="268437682" name="rez_cmp_local_label_label" stackId="4" startPc="268437303"/>
-<entry endPc="268437682" name="rez_cmp_local_custom_drawable_I9HH8MDKMZ83ZNPCO0QN" stackId="2" startPc="268437303"/>
-<entry endPc="268437682" name="rez_cmp_local_label_value" stackId="6" startPc="268437303"/>
-<entry endPc="268438064" name="rez_cmp_local_label_label_font" stackId="3" startPc="268437685"/>
-<entry endPc="268438064" name="rez_cmp_local_label_value_font" stackId="5" startPc="268437685"/>
-<entry endPc="268438064" name="rez_cmp_local_label_label" stackId="4" startPc="268437685"/>
-<entry endPc="268438064" name="rez_cmp_local_custom_drawable_QYI6GSNUWVRFN5DV6D8M" stackId="2" startPc="268437685"/>
-<entry endPc="268438064" name="rez_cmp_local_label_value" stackId="6" startPc="268437685"/>
-<entry endPc="268438446" name="rez_cmp_local_label_label_font" stackId="3" startPc="268438067"/>
-<entry endPc="268438446" name="rez_cmp_local_label_value_font" stackId="5" startPc="268438067"/>
-<entry endPc="268438446" name="rez_cmp_local_label_label" stackId="4" startPc="268438067"/>
-<entry endPc="268438446" name="rez_cmp_local_custom_drawable_GIRPAT62F3XSEY1NTFL8" stackId="2" startPc="268438067"/>
-<entry endPc="268438446" name="rez_cmp_local_label_value" stackId="6" startPc="268438067"/>
+<entry endPc="268437820" name="timeX" stackId="5" startPc="268436333"/>
+<entry endPc="268437820" name="ampm" stackId="4" startPc="268436333"/>
+<entry endPc="268437820" name="clockTime" stackId="2" startPc="268436333"/>
+<entry endPc="268437820" name="time" stackId="3" startPc="268436333"/>
+<entry endPc="268439001" name="i" stackId="4" startPc="268438947"/>
+<entry endPc="268439001" name="yStart" stackId="2" startPc="268438733"/>
+<entry endPc="268439001" name="xStart" stackId="3" startPc="268438733"/>
+<entry endPc="268439183" name="distanceHigh" stackId="3" startPc="268439056"/>
+<entry endPc="268439183" name="distanceFullString" stackId="4" startPc="268439056"/>
+<entry endPc="268439183" name="distanceInUnit" stackId="2" startPc="268439056"/>
+<entry endPc="268439183" name="floatNumber" stackId="6" startPc="268439056"/>
+<entry endPc="268439183" name="commaPos" stackId="5" startPc="268439056"/>
+<entry endPc="268439407" name="hours" stackId="2" startPc="268439222"/>
+<entry endPc="268439407" name="minutes" stackId="3" startPc="268439222"/>
+<entry endPc="268439407" name="seconds" stackId="4" startPc="268439222"/>
+<entry endPc="268439451" name="kmOrMilesPerHour" stackId="2" startPc="268439413"/>
+<entry endPc="268439557" name="i" stackId="4" startPc="268439511"/>
+<entry endPc="268439583" name="size" stackId="1" startPc="268439454"/>
+<entry endPc="268439583" name="data" stackId="2" startPc="268439454"/>
+<entry endPc="268439583" name="sumOfData" stackId="3" startPc="268439454"/>
+<entry endPc="268439689" name="i" stackId="4" startPc="268439643"/>
+<entry endPc="268439715" name="size" stackId="1" startPc="268439586"/>
+<entry endPc="268439715" name="data" stackId="2" startPc="268439586"/>
+<entry endPc="268439715" name="sumOfData" stackId="3" startPc="268439586"/>
+<entry endPc="268439844" name="minutesPerKmOrMilesFloor" stackId="4" startPc="268439739"/>
+<entry endPc="268439844" name="metersPerMinute" stackId="2" startPc="268439739"/>
+<entry endPc="268439844" name="seconds" stackId="5" startPc="268439739"/>
+<entry endPc="268439844" name="minutesPerKmOrMilesDecimal" stackId="3" startPc="268439739"/>
+<entry endPc="268440046" name="i" stackId="1" startPc="268440021"/>
+<entry endPc="268440115" name="dictionary" stackId="1" startPc="268440074"/>
+<entry endPc="268440798" name="rez_cmp_local_label_label_font" stackId="3" startPc="268440245"/>
+<entry endPc="268440798" name="rez_cmp_local_label_value_font" stackId="6" startPc="268440245"/>
+<entry endPc="268440798" name="rez_cmp_local_label_label_fontHeight" stackId="5" startPc="268440245"/>
+<entry endPc="268440798" name="rez_cmp_local_label_value_fontHeight" stackId="8" startPc="268440245"/>
+<entry endPc="268440798" name="rez_cmp_local_label_label" stackId="4" startPc="268440245"/>
+<entry endPc="268440798" name="rez_cmp_local_custom_drawable_NP4WLSGQXIJ4T7SIJ1SZ" stackId="2" startPc="268440245"/>
+<entry endPc="268440798" name="rez_cmp_local_label_value" stackId="7" startPc="268440245"/>
+<entry endPc="268441180" name="rez_cmp_local_label_label_font" stackId="3" startPc="268440801"/>
+<entry endPc="268441180" name="rez_cmp_local_label_value_font" stackId="5" startPc="268440801"/>
+<entry endPc="268441180" name="rez_cmp_local_custom_drawable_PUB3NFFSP7DIAV36DIVS" stackId="2" startPc="268440801"/>
+<entry endPc="268441180" name="rez_cmp_local_label_label" stackId="4" startPc="268440801"/>
+<entry endPc="268441180" name="rez_cmp_local_label_value" stackId="6" startPc="268440801"/>
+<entry endPc="268441562" name="rez_cmp_local_label_label_font" stackId="3" startPc="268441183"/>
+<entry endPc="268441562" name="rez_cmp_local_label_value_font" stackId="5" startPc="268441183"/>
+<entry endPc="268441562" name="rez_cmp_local_custom_drawable_ESG3SWIJMTXZBZE51COS" stackId="2" startPc="268441183"/>
+<entry endPc="268441562" name="rez_cmp_local_label_label" stackId="4" startPc="268441183"/>
+<entry endPc="268441562" name="rez_cmp_local_label_value" stackId="6" startPc="268441183"/>
+<entry endPc="268441944" name="rez_cmp_local_label_label_font" stackId="3" startPc="268441565"/>
+<entry endPc="268441944" name="rez_cmp_local_label_value_font" stackId="5" startPc="268441565"/>
+<entry endPc="268441944" name="rez_cmp_local_label_label" stackId="4" startPc="268441565"/>
+<entry endPc="268441944" name="rez_cmp_local_label_value" stackId="6" startPc="268441565"/>
+<entry endPc="268441944" name="rez_cmp_local_custom_drawable_749Z3WV713LJRX099XXX" stackId="2" startPc="268441565"/>
+<entry endPc="268442326" name="rez_cmp_local_label_label_font" stackId="3" startPc="268441947"/>
+<entry endPc="268442326" name="rez_cmp_local_custom_drawable_P5F8TSF6EQ78RRNU5NNR" stackId="2" startPc="268441947"/>
+<entry endPc="268442326" name="rez_cmp_local_label_value_font" stackId="5" startPc="268441947"/>
+<entry endPc="268442326" name="rez_cmp_local_label_label" stackId="4" startPc="268441947"/>
+<entry endPc="268442326" name="rez_cmp_local_label_value" stackId="6" startPc="268441947"/>
 </localVars>
 <annotations/>
 <functions>
@@ -165,6 +382,99 @@
 <functionEntry name="onUpdate" parent="HCUView">
 <param id="dc"/>
 <documentation><![CDATA[<div class="description"> Display the value you computed here. This will be called<br/> once a second when the data field is visible.<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="populateConfigFromDeviceSettings" parent="HCUView">
+<documentation/>
+</functionEntry>
+<functionEntry name="drawGrid" parent="HCUView">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> API functions<br/> function setLayout(layout) {}<br/> function onShow() {}<br/> function onHide() {}<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="draw" parent="HCUView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="txtVsOutline" parent="HCUView">
+<param id="x"/>
+<param id="y"/>
+<param id="font"/>
+<param id="text"/>
+<param id="pos"/>
+<param id="color"/>
+<param id="dc"/>
+<param id="delta"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="setColor" parent="HCUView">
+<param id="dc"/>
+<param id="color"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="drawGps" parent="HCUView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="drawGpsSign" parent="HCUView">
+<param id="dc"/>
+<param id="xStart"/>
+<param id="yStart"/>
+<param id="color1"/>
+<param id="color2"/>
+<param id="color3"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="drawBattery" parent="HCUView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="calcNullable" parent="HCUView">
+<param id="nullableValue"/>
+<param id="defaultValue"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="calculateDistance" parent="HCUView">
+<param id="info"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="calculateElapsedTime" parent="HCUView">
+<param id="info"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="calculateSpeed" parent="HCUView">
+<param id="speedMetersPerSecond"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="computeAverageSpeed" parent="HCUView">
+<documentation/>
+</functionEntry>
+<functionEntry name="compureAverageOneMinuteSpeed" parent="HCUView">
+<documentation/>
+</functionEntry>
+<functionEntry name="getMinutesPerKmOrMile" parent="HCUView">
+<param id="speedMetersPerSecond"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="calculateAsc" parent="HCUView">
+<param id="ascMeters"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="calculateAmPmHour" parent="HCUView">
+<param id="hour"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="initialize" parent="DataQueue">
+<param id="arraySize"/>
+<documentation><![CDATA[<div class="description"> precondition: size has to be >= 2<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="add" parent="DataQueue">
+<param id="element"/>
+<documentation><![CDATA[<div class="description"> Add an element to the queue.<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="reset" parent="DataQueue">
+<documentation><![CDATA[<div class="description"> Reset the queue to its initial state.<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="getData" parent="DataQueue">
+<documentation><![CDATA[<div class="description"> Get the underlying data array.<br/></div>]]></documentation>
 </functionEntry>
 <functionEntry name="initialize" parent="Background">
 <documentation/>
