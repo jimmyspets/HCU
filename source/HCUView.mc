@@ -89,9 +89,9 @@ class HCUView extends Ui.DataField {
         drawBattery(dc);    
     }
     function populateConfigFromDeviceSettings() {
-        isDistanceUnitsMetric = System.getDeviceSettings().distanceUnits == System.UNIT_METRIC;
-        isSpeedUnitsMetric = System.getDeviceSettings().paceUnits == System.UNIT_METRIC;
-        is24Hour = System.getDeviceSettings().is24Hour;
+        //isDistanceUnitsMetric = System.getDeviceSettings().distanceUnits == System.UNIT_METRIC;
+        //isSpeedUnitsMetric = System.getDeviceSettings().paceUnits == System.UNIT_METRIC;
+        //is24Hour = System.getDeviceSettings().is24Hour;
     }
     //! API functions
     
@@ -102,52 +102,34 @@ class HCUView extends Ui.DataField {
     function drawGrid(dc) {
         setColor(dc, Gfx.COLOR_YELLOW);
         dc.setPenWidth(1);
-		dc.drawLine(0, 22, dc.getWidth(), 22);
-		dc.drawLine(0, 64, dc.getWidth(), 64);
-		dc.drawLine(0, 106, dc.getWidth(), 106);  
+		dc.drawLine(0, 35, dc.getWidth(), 35);
+		dc.drawLine(0, 95, dc.getWidth(), 95);
+		dc.drawLine(0, 160, dc.getWidth(), 160);  
         dc.setPenWidth(1);    
     }
     function draw(dc) {
         setColor(dc, Gfx.COLOR_DK_GRAY);
-        dc.drawText(30, 28, HEADER_FONT, "CAD", CENTER);
-        dc.drawText(90, 28, HEADER_FONT, "AVG PACE", CENTER);
-        dc.drawText(162, 28, HEADER_FONT, "DIST (" + (isDistanceUnitsMetric ? "km" : "mi") + ")", CENTER);
+        dc.drawText(60, 43, HEADER_FONT, "NC Dist", CENTER);
+        dc.drawText(150, 43, HEADER_FONT, "NC Pace", CENTER);
         
-        dc.drawText(30, 70, HEADER_FONT, "HR", CENTER);
-        dc.drawText(90, 70, HEADER_FONT, "PACE", CENTER);
-        dc.drawText(162, 70, HEADER_FONT, "TIME", CENTER);
+        dc.drawText(30, 103, HEADER_FONT, "HR", CENTER);
+        dc.drawText(100, 103, HEADER_FONT, "AHD/BHD", CENTER);
+        dc.drawText(172,103, HEADER_FONT, "Cur Pace", CENTER);
 
-        dc.drawText(30, 112, HEADER_FONT, "T.ASC", CENTER);
-        dc.drawText(90, 112, HEADER_FONT, "T.DES", CENTER);
-        dc.drawText(162, 112, HEADER_FONT, "ALT", CENTER);
+        dc.drawText(60, 168, HEADER_FONT, "ETF", CENTER);
+        dc.drawText(162,168, HEADER_FONT, "Dist Rem", CENTER);
         
         setColor(dc, Gfx.COLOR_BLACK);
 
-        var clockTime = System.getClockTime();
-        var time, ampm, timeX;
-        if (is24Hour) {
-            time = Lang.format("$1$:$2$", [clockTime.hour, clockTime.min.format("%.2d")]);
-            ampm = "";
-            timeX = x;
-        } else {
-            time = Lang.format("$1$:$2$", [calculateAmPmHour(clockTime.hour), clockTime.min.format("%.2d")]);
-            ampm = (clockTime.hour < 12) ? "am" : "pm";
-            timeX = x;
-        }
-        dc.drawText(timeX, 8, Gfx.FONT_MEDIUM, time, CENTER);
-        dc.drawText(timeX + 28, 8, HEADER_FONT, ampm, CENTER);
-        
-		txtVsOutline(30, 50, VALUE_FONT, cad.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
-		txtVsOutline(90, 50, VALUE_FONT, getMinutesPerKmOrMile(avgSpeed), CENTER, Gfx.COLOR_BLACK, dc, 1);
-		txtVsOutline(162, 50, VALUE_FONT, distance, CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
+        txtVsOutline(60, 65, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
+        txtVsOutline(150, 65, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
+
+   		txtVsOutline(30, 130, VALUE_FONT, cad.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
+		txtVsOutline(100, 130, VALUE_FONT, getMinutesPerKmOrMile(avgSpeed), CENTER, Gfx.COLOR_BLACK, dc, 1);
+		txtVsOutline(162,130, VALUE_FONT, distance, CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
 		
-        txtVsOutline(30, 92, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
-        txtVsOutline(90, 92, VALUE_FONT, getMinutesPerKmOrMile(computeAverageSpeed()), CENTER, Gfx.COLOR_BLACK, dc, 1);
-        txtVsOutline(162,92, VALUE_FONT, elapsedTime, CENTER, Gfx.COLOR_BLUE, dc, 1);
-        
-        txtVsOutline(30, 134, VALUE_FONT, totalAsc.format("%.4d"), CENTER, Gfx.COLOR_ORANGE, dc, 1);
-        txtVsOutline(90, 134, VALUE_FONT, totalDes.format("%.4d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
-        txtVsOutline(162, 134, VALUE_FONT, alt.format("%.4d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
+        txtVsOutline(60, 190, VALUE_FONT, getMinutesPerKmOrMile(computeAverageSpeed()), CENTER, Gfx.COLOR_BLACK, dc, 1);
+        txtVsOutline(150,190, VALUE_FONT, elapsedTime, CENTER, Gfx.COLOR_BLUE, dc, 1);
     }
 
     function txtVsOutline(x, y, font, text, pos, color, dc, delta) {
@@ -173,16 +155,13 @@ class HCUView extends Ui.DataField {
 //        dc.drawText(x + 63, 43, HEADER_FONT, "GPS", CENTER);
 //        setColor(dc, Gfx.COLOR_BLACK);
        // gps
-        if (gpsSignal < 2) {
-            drawGpsSign(dc, 180, 0, Gfx.COLOR_LT_GRAY, Gfx.COLOR_LT_GRAY, Gfx.COLOR_LT_GRAY);
-        } else if (gpsSignal == 2) {
-            drawGpsSign(dc, 180, 0, Gfx.COLOR_DK_GREEN, Gfx.COLOR_LT_GRAY, Gfx.COLOR_LT_GRAY);
-        } else if (gpsSignal == 3) {
-            drawGpsSign(dc, 180, 0, Gfx.COLOR_DK_GREEN, Gfx.COLOR_DK_GREEN, Gfx.COLOR_LT_GRAY);
-        } else {
-            drawGpsSign(dc, 180, 0, Gfx.COLOR_DK_GREEN, Gfx.COLOR_DK_GREEN, Gfx.COLOR_DK_GREEN);
-        }
-    }
+        var yStart = 34;
+        var xStart = 20;
+
+       setColor(dc, Gfx.COLOR_DK_GREEN);
+		dc.fillRectangle(xStart, yStart , 170 * gpsSignal / 4, 3); 
+		
+   }
 
     function drawGpsSign(dc, xStart, yStart, color1, color2, color3) {
         dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
@@ -202,22 +181,11 @@ class HCUView extends Ui.DataField {
     }
     
     function drawBattery(dc) {
-        var yStart = 3;
-        var xStart = 2;
+        var yStart = 94;
+        var xStart = 1;
 
-        setColor(dc, Gfx.COLOR_BLACK);
-        dc.drawRectangle(xStart, yStart, 29, 15);
-        dc.drawRectangle(xStart + 1, yStart + 1, 27, 13);
-        dc.fillRectangle(xStart + 29, yStart + 3, 2, 9);
-        setColor(dc, Gfx.COLOR_DK_GREEN);
-        for (var i = 0; i < (24 * System.getSystemStats().battery / 100); i = i + 3) {
-            dc.fillRectangle(xStart + 3 + i, yStart + 3, 2, 9);    
-        }
-        
-     //   setColor(dc, Gfx.COLOR_DK_GREEN);
-     //   dc.drawText(xStart+18, yStart+6, HEADER_FONT, format("$1$%", [battery.format("%d")]), CENTER);
-             
-     //   setColor(dc, Gfx.COLOR_BLACK);
+       setColor(dc, Gfx.COLOR_DK_GREEN);
+		dc.fillRectangle(xStart, yStart , 216 * System.getSystemStats().battery / 100, 3);        
     }
 
 	function calcNullable(nullableValue, defaultValue) {
