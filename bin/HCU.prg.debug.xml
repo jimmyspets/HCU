@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+<pcToLineNum>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="7" pc="268435458" symbol="initialize"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="15" pc="268435479" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="18" pc="268435498" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="19" pc="268435521" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="23" pc="268435590" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="27" pc="268435659" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="31" pc="268435728" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="35" pc="268435774" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="36" pc="268435817" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="37" pc="268435841" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="38" pc="268435863" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="39" pc="268435887" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="42" pc="268435909" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="43" pc="268435961" symbol="onLayout"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="50" pc="268435967" symbol="compute"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="57" pc="268435983" symbol="onUpdate"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="60" pc="268436026" symbol="onUpdate"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="61" pc="268436050" symbol="onUpdate"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="62" pc="268436077" symbol="onUpdate"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="64" pc="268436104" symbol="onUpdate"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="66" pc="268436128" symbol="onUpdate"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUView.mc" lineNum="69" pc="268436162" symbol="onUpdate"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="10" pc="268436185" symbol="initialize"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="14" pc="268436206" symbol="initialize"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="18" pc="268436229" symbol="setColor"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="22" pc="268436242" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUBackground.mc" lineNum="23" pc="268436274" symbol="draw"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUApp.mc" lineNum="6" pc="268436289" symbol="initialize"/>
+<entry filename="C:\\Users\\jimspe\\workspace\\HCU\\source\\HCUApp.mc" lineNum="19" pc="268436316" symbol="getInitialView"/>
+<entry filename="Rez" lineNum="20" pc="268436356" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="21" pc="268436381" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="22" pc="268436408" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="24" pc="268436424" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="25" pc="268436438" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="26" pc="268436535" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="27" pc="268436550" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="28" pc="268436602" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="29" pc="268436648" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="30" pc="268436662" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="31" pc="268436759" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="32" pc="268436774" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="33" pc="268436826" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="34" pc="268436872" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="44" pc="268436912" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="45" pc="268436937" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="46" pc="268436964" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="48" pc="268436980" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="49" pc="268436994" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="50" pc="268437117" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="51" pc="268437131" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="52" pc="268437254" symbol="TopLeftLayout"/>
+<entry filename="Rez" lineNum="62" pc="268437294" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="63" pc="268437319" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="64" pc="268437346" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="66" pc="268437362" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="67" pc="268437376" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="68" pc="268437499" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="69" pc="268437513" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="70" pc="268437636" symbol="TopRightLayout"/>
+<entry filename="Rez" lineNum="80" pc="268437676" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="81" pc="268437701" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="82" pc="268437728" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="84" pc="268437744" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="85" pc="268437758" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="86" pc="268437881" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="87" pc="268437895" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="88" pc="268438018" symbol="BottomLeftLayout"/>
+<entry filename="Rez" lineNum="98" pc="268438058" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="99" pc="268438083" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="100" pc="268438110" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="102" pc="268438126" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="103" pc="268438140" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="104" pc="268438263" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="105" pc="268438277" symbol="BottomRightLayout"/>
+<entry filename="Rez" lineNum="106" pc="268438400" symbol="BottomRightLayout"/>
+</pcToLineNum>
+<symbolTable>
+<entry id="11" module="true" symbol="Menus"/>
+<entry field="true" id="19" symbol="AppName"/>
+<entry field="true" id="13" symbol="LauncherIcon"/>
+<entry id="8388771" module="true" symbol="Drawables"/>
+<entry field="true" id="8388611" module="true" symbol="Toybox"/>
+<entry id="8389347" symbol="color"/>
+<entry id="12" module="true" symbol="Layouts"/>
+<entry id="8389279" method="true" symbol="onStart"/>
+<entry id="18" method="true" symbol="BottomRightLayout"/>
+<entry id="8389124" method="true" symbol="onUpdate"/>
+<entry id="8389281" method="true" symbol="onStop"/>
+<entry field="true" id="8389065" symbol="locY"/>
+<entry field="true" id="8389064" symbol="locX"/>
+<entry id="8389130" symbol="mColor"/>
+<entry id="8388772" module="true" symbol="Fonts"/>
+<entry id="8389137" method="true" symbol="compute"/>
+<entry field="true" id="8389063" symbol="identifier"/>
+<entry id="8389349" symbol="justification"/>
+<entry id="8388769" module="true" symbol="Rez"/>
+<entry id="10" object="true" symbol="HCUApp"/>
+<entry field="true" id="8389138" symbol="label"/>
+<entry id="8389348" symbol="font"/>
+<entry id="8389280" method="true" symbol="getInitialView"/>
+<entry id="8" object="true" symbol="HCUView"/>
+<entry id="9" object="true" symbol="Background"/>
+<entry id="16" method="true" symbol="TopRightLayout"/>
+<entry id="14" method="true" symbol="MainLayout"/>
+<entry id="8389122" method="true" symbol="onLayout"/>
+<entry id="8389068" method="true" symbol="draw"/>
+<entry id="20" symbol="mValue"/>
+<entry id="8388770" module="true" symbol="Strings"/>
+<entry id="17" method="true" symbol="BottomLeftLayout"/>
+<entry id="8388702" method="true" symbol="initialize"/>
+<entry id="8389131" method="true" symbol="setColor"/>
+<entry id="15" method="true" symbol="TopLeftLayout"/>
+</symbolTable>
+<localVars>
+<entry endPc="268435909" name="valueView" stackId="4" startPc="268435774"/>
+<entry endPc="268435909" name="labelView" stackId="3" startPc="268435774"/>
+<entry endPc="268435964" name="obscurityFlags" stackId="2" startPc="268435479"/>
+<entry endPc="268436182" name="value" stackId="2" startPc="268435983"/>
+<entry endPc="268436226" name="dictionary" stackId="1" startPc="268436185"/>
+<entry endPc="268436909" name="rez_cmp_local_label_label_font" stackId="3" startPc="268436356"/>
+<entry endPc="268436909" name="rez_cmp_local_label_value_font" stackId="6" startPc="268436356"/>
+<entry endPc="268436909" name="rez_cmp_local_label_label_fontHeight" stackId="5" startPc="268436356"/>
+<entry endPc="268436909" name="rez_cmp_local_custom_drawable_UDJXBG5L28Q5YO2TU3DN" stackId="2" startPc="268436356"/>
+<entry endPc="268436909" name="rez_cmp_local_label_value_fontHeight" stackId="8" startPc="268436356"/>
+<entry endPc="268436909" name="rez_cmp_local_label_label" stackId="4" startPc="268436356"/>
+<entry endPc="268436909" name="rez_cmp_local_label_value" stackId="7" startPc="268436356"/>
+<entry endPc="268437291" name="rez_cmp_local_label_label_font" stackId="3" startPc="268436912"/>
+<entry endPc="268437291" name="rez_cmp_local_label_value_font" stackId="5" startPc="268436912"/>
+<entry endPc="268437291" name="rez_cmp_local_custom_drawable_0KC3HEWO8Y1NKMFVVB63" stackId="2" startPc="268436912"/>
+<entry endPc="268437291" name="rez_cmp_local_label_label" stackId="4" startPc="268436912"/>
+<entry endPc="268437291" name="rez_cmp_local_label_value" stackId="6" startPc="268436912"/>
+<entry endPc="268437673" name="rez_cmp_local_label_label_font" stackId="3" startPc="268437294"/>
+<entry endPc="268437673" name="rez_cmp_local_label_value_font" stackId="5" startPc="268437294"/>
+<entry endPc="268437673" name="rez_cmp_local_label_label" stackId="4" startPc="268437294"/>
+<entry endPc="268437673" name="rez_cmp_local_custom_drawable_6JZVQCNFGR6HU59I31CJ" stackId="2" startPc="268437294"/>
+<entry endPc="268437673" name="rez_cmp_local_label_value" stackId="6" startPc="268437294"/>
+<entry endPc="268438055" name="rez_cmp_local_label_label_font" stackId="3" startPc="268437676"/>
+<entry endPc="268438055" name="rez_cmp_local_label_value_font" stackId="5" startPc="268437676"/>
+<entry endPc="268438055" name="rez_cmp_local_label_label" stackId="4" startPc="268437676"/>
+<entry endPc="268438055" name="rez_cmp_local_custom_drawable_2HSU7Q52FHQWT8M1027S" stackId="2" startPc="268437676"/>
+<entry endPc="268438055" name="rez_cmp_local_label_value" stackId="6" startPc="268437676"/>
+<entry endPc="268438437" name="rez_cmp_local_label_label_font" stackId="3" startPc="268438058"/>
+<entry endPc="268438437" name="rez_cmp_local_label_value_font" stackId="5" startPc="268438058"/>
+<entry endPc="268438437" name="rez_cmp_local_custom_drawable_LS4FSUXUKZD92UDNRFIO" stackId="2" startPc="268438058"/>
+<entry endPc="268438437" name="rez_cmp_local_label_label" stackId="4" startPc="268438058"/>
+<entry endPc="268438437" name="rez_cmp_local_label_value" stackId="6" startPc="268438058"/>
+</localVars>
+<annotations/>
+<functions>
+<functionEntry name="initialize" parent="HCUView">
+<documentation/>
+</functionEntry>
+<functionEntry name="onLayout" parent="HCUView">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Set your layout here. Anytime the size of obscurity of<br/> the draw context is changed this will be called.<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="compute" parent="HCUView">
+<param id="info"/>
+<documentation><![CDATA[<div class="description"> The given info object contains all the current workout<br/> information. Calculate a value and save it locally in this method.<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="onUpdate" parent="HCUView">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Display the value you computed here. This will be called<br/> once a second when the data field is visible.<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="initialize" parent="Background">
+<documentation/>
+</functionEntry>
+<functionEntry name="setColor" parent="Background">
+<param id="color"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="draw" parent="Background">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="initialize" parent="HCUApp">
+<documentation/>
+</functionEntry>
+<functionEntry name="onStart" parent="HCUApp">
+<documentation><![CDATA[<div class="description"> onStart() is called on application start up<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="onStop" parent="HCUApp">
+<documentation><![CDATA[<div class="description"> onStop() is called when your application is exiting<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="getInitialView" parent="HCUApp">
+<documentation><![CDATA[<div class="description"> Return the initial view of your application here<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="MainLayout" parent="Layouts">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Draw the layout<br/> param The context<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="TopLeftLayout" parent="Layouts">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Draw the layout<br/> param The context<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="TopRightLayout" parent="Layouts">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Draw the layout<br/> param The context<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="BottomLeftLayout" parent="Layouts">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Draw the layout<br/> param The context<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="BottomRightLayout" parent="Layouts">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Draw the layout<br/> param The context<br/></div>]]></documentation>
+</functionEntry>
+</functions>
+</debugInfo>
