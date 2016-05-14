@@ -38,7 +38,9 @@ class HCUView extends Ui.DataField {
 
 	hidden var paceStr, avgPaceStr;    
     hidden var paceData = new DataQueue(10);
-    hidden var controlstation = "ControlStation0";	
+    
+    //Configuration of control stations
+    hidden var controlstation = ["ControlStation0","Controlstation1"];	
 
     function initialize() {
         DataField.initialize();
@@ -123,7 +125,7 @@ class HCUView extends Ui.DataField {
         
         setColor(dc, Gfx.COLOR_BLACK);
 
-        dc.drawText(110, 20, VALUE_FONT, controlstation, CENTER);
+        dc.drawText(110, 20, VALUE_FONT, controlstation[0], CENTER);
 
         txtVsOutline(60, 65, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
         txtVsOutline(150, 65, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
