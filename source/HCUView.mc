@@ -28,7 +28,7 @@ class HCUView extends Ui.DataField {
     hidden var totalAsc = 0;
     hidden var totalDes = 0;
     hidden var hr = 0;
-    hidden var distance = "0:00";
+    hidden var distance = 0;
     hidden var elapsedTime = "00:00";
     hidden var gpsSignal = 0; //Signal 0 not avail ... 4 good
     hidden var x;
@@ -40,10 +40,12 @@ class HCUView extends Ui.DataField {
     hidden var paceData = new DataQueue(10);
     
     //Configuration of control stations
-
-    hidden var controlstationName = ["Köpmannaholmen","Skuleberget","Nordingrå","Fjärdbotten","Mål Hornö"];
-    hidden var controlstationDistance = [30,54,84,109,129];
-    hidden var controlstationMaxTime = [18000000,37800000,55800000,75600000,93600000]; //max time in milliseconds	
+    hidden var controlstationName = ["Kopmannaholmen","Skuleberget","Nordingra","Fjardbotten","Mal Horno"];
+    hidden var controlstationDistance = [100,200,300,400,500]; //distance in meters
+    hidden var controlstationMaxTime = [18000000,37800000,55800000,75600000,93600000]; //max time in milliseconds
+    hidden var currentControlStation = 0;
+    hidden var lastControlStation = 4;	
+    hidden var distanceNextControlStation = 0;
 
     function initialize() {
         DataField.initialize();
@@ -84,6 +86,8 @@ class HCUView extends Ui.DataField {
         calculateDistance(info);
         calculateElapsedTime(info);
         gpsSignal = info.currentLocationAccuracy;
+        currentControlStation = calcCurrentControlStation(info);
+//        distanceNextControlStation = calcDistanceNextControlStation;
     }
 
     //! Display the value you computed here. This will be called
@@ -104,6 +108,16 @@ class HCUView extends Ui.DataField {
     //! function setLayout(layout) {}
     //! function onShow() {}
     //! function onHide() {}
+
+    //Functionality for ControlStations and distance, pace calculations
+	function calcCurrentControlStation(info) {
+        if (info.elapsedDistance != null && info.elapsedDistance > 0) {
+            if (info.elapsedDistance > controlstationDistance[currentControlStation] and currentControlStation < lastControlStation) {
+            	currentControlStation += 1;
+        	}        
+        }
+        return currentControlStation;   
+    }
 
     function drawGrid(dc) {
         setColor(dc, Gfx.COLOR_YELLOW);
@@ -128,7 +142,7 @@ class HCUView extends Ui.DataField {
         
         setColor(dc, Gfx.COLOR_BLACK);
 
-        dc.drawText(110, 20, VALUE_FONT, controlstationName[0], CENTER);
+        dc.drawText(110, 20, VALUE_FONT, controlstationName[currentControlStation], CENTER);
 
         txtVsOutline(60, 65, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
         txtVsOutline(150, 65, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
@@ -156,14 +170,6 @@ class HCUView extends Ui.DataField {
     }
 
     function drawGps(dc) {
-//        if (gpsSignal == 3 || gpsSignal == 4) {
-//            setColor(dc, Gfx.COLOR_DK_GREEN);
-//        } else {
-//            setColor(dc, Gfx.COLOR_DK_RED);
-//        }
-//        dc.drawText(x + 63, 43, HEADER_FONT, "GPS", CENTER);
-//        setColor(dc, Gfx.COLOR_BLACK);
-       // gps
         var yStart = 34;
         var xStart = 20;
 
@@ -317,5 +323,7 @@ class DataQueue {
     function getData() {
         return data;
     }
+
+
 
 }
