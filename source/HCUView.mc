@@ -42,7 +42,7 @@ class HCUView extends Ui.DataField {
     //Configuration of control stations
     hidden var controlstationName = ["Köpmannaholmen","Skuleberget","Nordingrå","Fjärdbotten","Mål Hornö"];
     hidden var controlstationDistance = [30,54,84,109,129];
-    hidden var controlstationMaxTime = [18000000,37800000,55800000,75600000,93600000] //max time in milliseconds	
+    hidden var controlstationMaxTime = [18000000,37800000,55800000,75600000,93600000]; //max time in milliseconds	
 
     function initialize() {
         DataField.initialize();
