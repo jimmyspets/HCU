@@ -40,6 +40,7 @@ class HCUView extends Ui.DataField {
     hidden var paceData = new DataQueue(10);
     
     //Configuration of control stations
+
     hidden var controlstationName = ["Köpmannaholmen","Skuleberget","Nordingrå","Fjärdbotten","Mål Hornö"];
     hidden var controlstationDistance = [30,54,84,109,129];
     hidden var controlstationMaxTime = [18000000,37800000,55800000,75600000,93600000]; //max time in milliseconds	
@@ -127,7 +128,7 @@ class HCUView extends Ui.DataField {
         
         setColor(dc, Gfx.COLOR_BLACK);
 
-        dc.drawText(110, 20, VALUE_FONT, controlstation[0], CENTER);
+        dc.drawText(110, 20, VALUE_FONT, controlstationName[0], CENTER);
 
         txtVsOutline(60, 65, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
         txtVsOutline(150, 65, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
