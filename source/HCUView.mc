@@ -38,6 +38,11 @@ class HCUView extends Ui.DataField {
 
 	hidden var paceStr, avgPaceStr;    
     hidden var paceData = new DataQueue(10);
+    
+    //Configuration of control stations
+    hidden var controlstationName = ["Köpmannaholmen","Skuleberget","Nordingrå","Fjärdbotten","Mål Hornö"];
+    hidden var controlstationDistance = [30,54,84,109,129];
+    hidden var controlstationMaxTime = [18000000,37800000,55800000,75600000,93600000] //max time in milliseconds	
 
     function initialize() {
         DataField.initialize();
@@ -109,6 +114,7 @@ class HCUView extends Ui.DataField {
     }
     function draw(dc) {
         setColor(dc, Gfx.COLOR_DK_GRAY);
+
         dc.drawText(60, 43, HEADER_FONT, "NC Dist", CENTER);
         dc.drawText(150, 43, HEADER_FONT, "NC Pace", CENTER);
         
@@ -121,10 +127,12 @@ class HCUView extends Ui.DataField {
         
         setColor(dc, Gfx.COLOR_BLACK);
 
+        dc.drawText(110, 20, VALUE_FONT, controlstation[0], CENTER);
+
         txtVsOutline(60, 65, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
         txtVsOutline(150, 65, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
 
-   		txtVsOutline(30, 130, VALUE_FONT, cad.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
+   		txtVsOutline(30, 130, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
 		txtVsOutline(100, 130, VALUE_FONT, getMinutesPerKmOrMile(avgSpeed), CENTER, Gfx.COLOR_BLACK, dc, 1);
 		txtVsOutline(162,130, VALUE_FONT, distance, CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
 		
@@ -162,23 +170,6 @@ class HCUView extends Ui.DataField {
 		dc.fillRectangle(xStart, yStart , 170 * gpsSignal / 4, 3); 
 		
    }
-
-    function drawGpsSign(dc, xStart, yStart, color1, color2, color3) {
-        dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
-        dc.drawRectangle(xStart - 1, yStart + 11, 8, 10);
-        dc.setColor(color1, Gfx.COLOR_TRANSPARENT);
-        dc.fillRectangle(xStart, yStart + 12, 6, 8);
-
-        dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
-        dc.drawRectangle(xStart + 6, yStart + 7, 8, 14);
-        dc.setColor(color2, Gfx.COLOR_TRANSPARENT);
-        dc.fillRectangle(xStart + 7, yStart + 8, 6, 12);
-
-        dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
-        dc.drawRectangle(xStart + 13, yStart + 3, 8, 18);
-        dc.setColor(color3, Gfx.COLOR_TRANSPARENT);
-        dc.fillRectangle(xStart + 14, yStart + 4, 6, 16);
-    }
     
     function drawBattery(dc) {
         var yStart = 94;
