@@ -40,8 +40,8 @@ class HCUView extends Ui.DataField {
     hidden var paceData = new DataQueue(10);
     
     //Configuration of control stations
-    hidden var controlstationName = ["Kopmannaholmen","Skuleberget","Nordingra","Fjardbotten","Mal Horno"];
-    hidden var controlstationDistance = [100,200,300,400,500]; //distance in meters
+    hidden var controlstationName = ["Kopmannaholmen","Skuleberget","Nordingra","Fjardbotten","Horno"];
+    hidden var controlstationDistance = [200,400,500,600,700]; //distance in meters
     hidden var controlstationMaxTime = [18000000,37800000,55800000,75600000,93600000]; //max time in milliseconds
     hidden var currentControlStation = 0;
     hidden var lastControlStation = 4;	
@@ -87,7 +87,7 @@ class HCUView extends Ui.DataField {
         calculateElapsedTime(info);
         gpsSignal = info.currentLocationAccuracy;
         currentControlStation = calcCurrentControlStation(info);
-//        distanceNextControlStation = calcDistanceNextControlStation;
+		calcDistanceNextControlStation(info);
     }
 
     //! Display the value you computed here. This will be called
@@ -118,6 +118,29 @@ class HCUView extends Ui.DataField {
         }
         return currentControlStation;   
     }
+    
+    function calcDistanceNextControlStation(info) {
+        if (info.elapsedDistance != null && info.elapsedDistance > 0) {
+            if ((controlstationDistance[currentControlStation] - info.elapsedDistance)>0) {
+            	var distanceNCSInUnit = (controlstationDistance[currentControlStation] - info.elapsedDistance) / 1000;
+	            var distanceNCSHigh = distanceNCSInUnit >= 10.0;
+    	        var distanceNCSVHigh = distanceNCSInUnit >= 100.0;
+        	    var distanceNCSFullString = distanceNCSInUnit.toString();
+	            var commaPos = distanceNCSFullString.find(".");
+    	        var floatNumber = 3;
+        	    if (distanceNCSHigh) {
+            		floatNumber = 2;
+	            }
+    	        if (distanceNCSVHigh) {
+        	    	floatNumber = 0;
+	        	}
+    	        distanceNextControlStation = distanceNCSFullString.substring(0, commaPos + floatNumber);
+  	      	}
+			else {
+  	      		distanceNextControlStation = " ";
+  	      	}
+		}  	      	
+    }
 
     function drawGrid(dc) {
         setColor(dc, Gfx.COLOR_YELLOW);
@@ -144,14 +167,15 @@ class HCUView extends Ui.DataField {
 
         dc.drawText(110, 20, VALUE_FONT, controlstationName[currentControlStation], CENTER);
 
-        txtVsOutline(60, 65, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
+        txtVsOutline(60, 65, VALUE_FONT, distanceNextControlStation, CENTER, Gfx.COLOR_BLACK, dc, 1);
         txtVsOutline(150, 65, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
 
    		txtVsOutline(30, 130, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
 		txtVsOutline(100, 130, VALUE_FONT, getMinutesPerKmOrMile(avgSpeed), CENTER, Gfx.COLOR_BLACK, dc, 1);
-		txtVsOutline(162,130, VALUE_FONT, distance, CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
+		txtVsOutline(162,130, VALUE_FONT, getMinutesPerKmOrMile(computeAverageSpeed()), CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
 		
-        txtVsOutline(60, 190, VALUE_FONT, getMinutesPerKmOrMile(computeAverageSpeed()), CENTER, Gfx.COLOR_BLACK, dc, 1);
+        txtVsOutline(60, 190, VALUE_FONT, distance, CENTER, Gfx.COLOR_BLACK, dc, 1);
+        txtVsOutline(150,190, VALUE_FONT, elapsedTime, CENTER, Gfx.COLOR_BLUE, dc, 1); //temporary for debug
         txtVsOutline(150,190, VALUE_FONT, elapsedTime, CENTER, Gfx.COLOR_BLUE, dc, 1);
     }
 
@@ -196,14 +220,18 @@ class HCUView extends Ui.DataField {
 
     function calculateDistance(info) {
         if (info.elapsedDistance != null && info.elapsedDistance > 0) {
-            var distanceInUnit = info.elapsedDistance / (isDistanceUnitsMetric ? 1000 : 1610);
-            var distanceHigh = distanceInUnit >= 100.0;
+            var distanceInUnit = info.elapsedDistance / 1000;
+            var distanceHigh = distanceInUnit >= 10.0;
+            var distanceVHigh = distanceInUnit >= 100.0;
             var distanceFullString = distanceInUnit.toString();
             var commaPos = distanceFullString.find(".");
             var floatNumber = 3;
             if (distanceHigh) {
             	floatNumber = 2;
             }
+            if (distanceVHigh) {
+            	floatNumber = 0;
+        	}
             distance = distanceFullString.substring(0, commaPos + floatNumber);
         }
     }
