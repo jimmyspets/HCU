@@ -46,6 +46,7 @@ class HCUView extends Ui.DataField {
     hidden var currentControlStation = 0;
     hidden var lastControlStation = 4;	
     hidden var distanceNextControlStation = 0;
+    hidden var distanceEnd = 0;
 
     function initialize() {
         DataField.initialize();
@@ -88,6 +89,7 @@ class HCUView extends Ui.DataField {
         gpsSignal = info.currentLocationAccuracy;
         currentControlStation = calcCurrentControlStation(info);
 		calcDistanceNextControlStation(info);
+		calcDistanceEnd(info);
     }
 
     //! Display the value you computed here. This will be called
@@ -141,6 +143,30 @@ class HCUView extends Ui.DataField {
   	      	}
 		}  	      	
     }
+    
+    function calcDistanceEnd(info) {
+        if (info.elapsedDistance != null && info.elapsedDistance > 0) {
+            if ((controlstationDistance[lastControlStation] - info.elapsedDistance)>0) {
+            	var distanceEndInUnit = (controlstationDistance[lastControlStation] - info.elapsedDistance) / 1000;
+	            var distanceEndHigh = distanceEndInUnit >= 10.0;
+    	        var distanceEndVHigh = distanceEndInUnit >= 100.0;
+        	    var distanceEndFullString = distanceEndInUnit.toString();
+	            var commaPos = distanceEndFullString.find(".");
+    	        var floatNumber = 3;
+        	    if (distanceEndHigh) {
+            		floatNumber = 2;
+	            }
+    	        if (distanceEndVHigh) {
+        	    	floatNumber = 0;
+	        	}
+    	        distanceEnd = distanceEndFullString.substring(0, commaPos + floatNumber);
+  	      	}
+			else {
+  	      		distanceEnd = " ";
+  	      	}
+		}  	      	
+    }
+    
 
     function drawGrid(dc) {
         setColor(dc, Gfx.COLOR_YELLOW);
@@ -175,8 +201,8 @@ class HCUView extends Ui.DataField {
 		txtVsOutline(162,130, VALUE_FONT, getMinutesPerKmOrMile(computeAverageSpeed()), CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
 		
         txtVsOutline(60, 190, VALUE_FONT, distance, CENTER, Gfx.COLOR_BLACK, dc, 1);
-        txtVsOutline(150,190, VALUE_FONT, elapsedTime, CENTER, Gfx.COLOR_BLUE, dc, 1); //temporary for debug
-        txtVsOutline(150,190, VALUE_FONT, elapsedTime, CENTER, Gfx.COLOR_BLUE, dc, 1);
+        txtVsOutline(105,190, VALUE_FONT, elapsedTime, CENTER, Gfx.COLOR_BLUE, dc, 1); //temporary for debug
+        txtVsOutline(150,190, VALUE_FONT, distanceEnd, CENTER, Gfx.COLOR_BLACK, dc, 1);
     }
 
     function txtVsOutline(x, y, font, text, pos, color, dc, delta) {
