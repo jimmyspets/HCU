@@ -41,15 +41,27 @@ class HCUView extends Ui.DataField {
     
     //Configuration of control stations
     hidden var controlstationName = ["Kopmannaholmen","Skuleberget","Nordingra","Fjardbotten","Horno"];
-    hidden var controlstationDistance = [200,400,500,600,700]; //distance in meters
+    hidden var controlstationDistance = [30000,54000,84000,109000,129000]; //distance in meters
     hidden var controlstationMaxTime = [18000000,37800000,55800000,75600000,93600000]; //max time in milliseconds
     hidden var currentControlStation = 0;
     hidden var lastControlStation = 4;	
     hidden var distanceNextControlStation = 0;
     hidden var distanceEnd = 0;
+    hidden var calculatedCurrentTime = 0; // calculated curent time at current position using controlstationPace in milliseconds
+    hidden var controlstationPace;
+  
 
     function initialize() {
         DataField.initialize();
+        controlstationPace = new[lastControlStation + 1];
+        for (var i = 0; i < lastControlStation + 1; i++) {
+        	if (i == 0) {
+           		controlstationPace[i] = controlstationDistance[i].toFloat() / controlstationMaxTime[i].toFloat();
+   			}
+       		else {
+       			controlstationPace[i] = (controlstationDistance[i].toFloat() - controlstationDistance[i - 1].toFloat()) / (controlstationMaxTime[i].toFloat() - controlstationMaxTime[i - 1].toFloat()); 
+   			}
+        }
     }
 
     //hidden var mValue;
@@ -90,6 +102,7 @@ class HCUView extends Ui.DataField {
         currentControlStation = calcCurrentControlStation(info);
 		calcDistanceNextControlStation(info);
 		calcDistanceEnd(info);
+//		calcCalculatedCurrentTime(info);
     }
 
     //! Display the value you computed here. This will be called
@@ -121,6 +134,14 @@ class HCUView extends Ui.DataField {
         return currentControlStation;   
     }
     
+    function calculatedCurrentTime(info) {
+        if (info.elapsedDistance != null && info.elapsedDistance > 0) {
+ //           if currentControlStation = 0 {
+ //           	var paceCurrentControlstation = controlstationDistance[currentControlStation] / controlstationMaxTime[currentControlStation]
+ //           }
+		}  	      	
+    }  
+      
     function calcDistanceNextControlStation(info) {
         if (info.elapsedDistance != null && info.elapsedDistance > 0) {
             if ((controlstationDistance[currentControlStation] - info.elapsedDistance)>0) {
