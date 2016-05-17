@@ -48,7 +48,7 @@ class HCUView extends Ui.DataField {
     hidden var distanceNextControlStation = 0;
     hidden var distanceEnd = 0;
     hidden var calculatedCurrentTime = 0; // calculated curent time at current position using controlstationPace in milliseconds
-    hidden var controlstationPace;
+    hidden var controlstationPace; //the max pace for the segment 
   
 
     function initialize() {
@@ -102,7 +102,7 @@ class HCUView extends Ui.DataField {
         currentControlStation = calcCurrentControlStation(info);
 		calcDistanceNextControlStation(info);
 		calcDistanceEnd(info);
-//		calcCalculatedCurrentTime(info);
+		calcCalculatedCurrentTime(info);
     }
 
     //! Display the value you computed here. This will be called
@@ -134,11 +134,16 @@ class HCUView extends Ui.DataField {
         return currentControlStation;   
     }
     
-    function calculatedCurrentTime(info) {
+    function calcCalculatedCurrentTime(info) {
         if (info.elapsedDistance != null && info.elapsedDistance > 0) {
- //           if currentControlStation = 0 {
- //           	var paceCurrentControlstation = controlstationDistance[currentControlStation] / controlstationMaxTime[currentControlStation]
- //           }
+            if (currentControlStation == 0) {
+            	var calculatedCurrentTime =  info.elapsedDistance / controlstationPace[currentControlStation];
+//            	System.println(calculatedCurrentTime + " " + info.elapsedDistance + " " + info.elapsedTime);
+			}
+			else {
+				var calculatedCurrentTime =  (info.elapsedDistance - controlstationDistance[currentControlStation]) / 
+				controlstationPace[currentControlStation] + controlstationMaxTime[currentControlStation - 1];
+			}
 		}  	      	
     }  
       
