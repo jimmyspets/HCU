@@ -48,6 +48,8 @@ class HCUView extends Ui.DataField {
     hidden var distanceNextControlStation = 0;
     hidden var distanceEnd = 0;
     hidden var calculatedPlannedTime = 0; // calculated curent time at current position using controlstationPace in milliseconds
+    hidden var aheadBehind = 0; //time ahead or behind plan
+    hidden var millisecondsAheadBehind = 0;
     hidden var controlstationPace; //the max pace for the segment 
   
 
@@ -103,6 +105,8 @@ class HCUView extends Ui.DataField {
 		calcDistanceNextControlStation(info);
 		calcDistanceEnd(info);
 		calcCalculatedPlannedTime(info);
+//		System.println (calculatedPlannedTime + " " + info.elapsedDistance + " " + info.elapsedTime + " " + distanceEnd);
+		calcAheadBehind(info);
     }
 
     //! Display the value you computed here. This will be called
@@ -137,11 +141,11 @@ class HCUView extends Ui.DataField {
     function calcCalculatedPlannedTime(info) {
         if (info.elapsedDistance != null && info.elapsedDistance > 0) {
             if (currentControlStation == 0) {
-            	var calculatedPlannedTime =  info.elapsedDistance / controlstationPace[currentControlStation];
-//            	System.println(calculatedPlannedTime + " " + info.elapsedDistance + " " + info.elapsedTime);
+            	calculatedPlannedTime =  info.elapsedDistance / controlstationPace[currentControlStation];
+            	//System.println(calculatedPlannedTime + " " + info.elapsedDistance + " " + info.elapsedTime);
 			}
 			else {
-				var calculatedPlannedTime =  (info.elapsedDistance - controlstationDistance[currentControlStation]) / 
+				calculatedPlannedTime =  (info.elapsedDistance - controlstationDistance[currentControlStation]) / 
 				controlstationPace[currentControlStation] + controlstationMaxTime[currentControlStation - 1];
 			}
 		}  	      	
@@ -191,6 +195,26 @@ class HCUView extends Ui.DataField {
   	      		distanceEnd = " ";
   	      	}
 		}  	      	
+    }
+    
+    function calcAheadBehind(info) {
+        if (info.elapsedTime != null && info.elapsedTime != 0) {
+//        	System.println (calculatedPlannedTime + " " + info.elapsedDistance + " " + info.elapsedTime);
+            millisecondsAheadBehind = calculatedPlannedTime - info.elapsedTime;
+            var seconds = millisecondsAheadBehind / 1000;
+            var minutes = millisecondsAheadBehind / 60000;
+            if (minutes > 99 or minutes < -99) {
+	            aheadBehind = minutes.format("%02d") + "m";
+            }
+            else {
+ //           	aheadBehind = Calendar.info(millisecondsAheadBehind, Time.FORMAT_SHORT);
+            	aheadBehind = minutes.format("%02d") + ":" + seconds.format("%02d");
+        	}
+        }
+        else {
+        	aheadBehind = " ";
+       } 
+       System.println(aheadBehind + " " + millisecondsAheadBehind + " " + calculatedPlannedTime + " " + info.elapsedDistance + " " + info.elapsedTime);
     }
     
 
