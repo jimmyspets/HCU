@@ -41,6 +41,7 @@ class HCUView extends Ui.DataField {
     hidden var paceAvgDistance = [0,0,0,0,0,0,0,0,0,0];
     hidden var paceAvgTime = [0,0,0,0,0,0,0,0,0,0];
     hidden var paceAvg = 0;
+    hidden var nextCalcTime = 10000;
   
 
     function initialize() {
@@ -76,19 +77,20 @@ class HCUView extends Ui.DataField {
     	hr = calcNullable(info.currentHeartRate, 0);
         gpsSignal = info.currentLocationAccuracy;
 		//Debug info
-		if (info.elapsedDistance != null && info.elapsedDistance > 10 && info.elapsedTime != null && info.elapsedTime > 2000) {
-	        calculateDistance(info);
-    	    calculateElapsedTime(info);
-        	currentControlStation = calcCurrentControlStation(info);
+		if (info.elapsedDistance != null && info.elapsedDistance > 10 && info.elapsedTime != null && info.elapsedTime >= nextCalcTime) {
+        	calculateDistance(info);
+   	    	calculateElapsedTime(info);
+       		currentControlStation = calcCurrentControlStation(info);
 			calcDistanceNextControlStation(info);
 			calcDistanceEnd(info);
 			calcCalculatedPlannedTime(info);
 			calcAheadBehind(info);
 			calcEstimatedFinnishTime(info);
 			calcPaceAvg(info);
-	        System.println("AheadBehind " + displayHMS(millisecondsAheadBehind) + " calculatedPlannedTime " + 
-    	    displayHMS(calculatedPlannedTime) + " info.elapsedDistance " + info.elapsedDistance + " info.elapsedTime " + info.elapsedTime + 
-        	" controlstationMaxTime " + controlstationMaxTime[currentControlStation] + " paceNextControlStation " + displayHMS(paceNextControlStation));
+        	System.println("AheadBehind " + displayHMS(millisecondsAheadBehind) + " calculatedPlannedTime " + 
+   	    	displayHMS(calculatedPlannedTime) + " info.elapsedDistance " + info.elapsedDistance + " info.elapsedTime " + info.elapsedTime + 
+       		" controlstationMaxTime " + controlstationMaxTime[currentControlStation] + " paceNextControlStation " + displayHMS(paceNextControlStation));
+			nextCalcTime = info.elapsedTime + 10000;	
 		}
     }
 
