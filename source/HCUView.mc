@@ -14,19 +14,7 @@ class HCUView extends Ui.DataField {
     hidden const ZERO_TIME = "0:00";
 
     // Config
-    hidden var is24Hour = true;
-    hidden var isDistanceUnitsMetric = true;
-    hidden var isSpeedUnitsMetric = true;
-    hidden var cad = 0;
-    hidden var cal = 0;
-    hidden var temp = 0;
-    hidden var speed = 0.0;
-    hidden var avgSpeed = 0.0;
-    hidden var pace = 0;
     hidden var avgPace = 0;
-    hidden var alt = 0;
-    hidden var totalAsc = 0;
-    hidden var totalDes = 0;
     hidden var hr = 0;
     hidden var distance = 0;
     hidden var elapsedTime = "00:00";
@@ -36,8 +24,6 @@ class HCUView extends Ui.DataField {
     hidden var y1;
     hidden var y2;
 
-	hidden var paceStr, avgPaceStr;    
-    hidden var paceData = new DataQueue(10);
     
     //Configuration of control stations
     hidden var controlstationName = ["Kopmannaholmen","Skuleberget","Nordingra","Fjardbotten","Horno"];
@@ -52,6 +38,8 @@ class HCUView extends Ui.DataField {
     hidden var millisecondsAheadBehind = 0;
     hidden var controlstationPace; //the max pace for the segment
     hidden var estimatedFinnishTime = 0; //Estimated finnish time in milliseconds 
+    hidden var paceAvgDistance = [0,0,0,0,0,0,0,0,0,0];
+    hidden var paceAvgTime = [0,0,0,0,0,0,0,0,0,0];
   
 
     function initialize() {
@@ -72,7 +60,6 @@ class HCUView extends Ui.DataField {
     //! Set your layout here. Anytime the size of obscurity of
     //! the draw context is changed this will be called.
     function onLayout(dc) {
-    	populateConfigFromDeviceSettings();
         // calculate values for grid
         y = dc.getHeight() / 2 + 5;
         y1 = dc.getHeight() / 4.7 + 5;
@@ -84,21 +71,8 @@ class HCUView extends Ui.DataField {
     //! The given info object contains all the current workout
     //! information. Calculate a value and save it locally in this method.
     function compute(info) {
-        // See Activity.Info in the documentation for available information.
-    	if (info.currentSpeed != null) {
-            paceData.add(info.currentSpeed);
-        } else {
-            paceData.reset();
-        }
-        
-    	speed = calcNullable(info.currentSpeed, 0.0);
-    	avgSpeed = calcNullable(info.averageSpeed, 0.0);
-    	cad = calcNullable(info.currentCadence, 0);
-    	cal = calcNullable(info.calories, 0);
+        // See Activity.Info in the documentation for available information.       
     	hr = calcNullable(info.currentHeartRate, 0);
-    	alt = calcNullable(info.altitude, 0);
-    	totalAsc = calcNullable(info.totalAscent, 0);
-    	totalDes = calcNullable(info.totalDescent, 0);
         calculateDistance(info);
         calculateElapsedTime(info);
         gpsSignal = info.currentLocationAccuracy;
@@ -123,11 +97,6 @@ class HCUView extends Ui.DataField {
         drawGrid(dc);
         drawGps(dc);
         drawBattery(dc);    
-    }
-    function populateConfigFromDeviceSettings() {
-        //isDistanceUnitsMetric = System.getDeviceSettings().distanceUnits == System.UNIT_METRIC;
-        //isSpeedUnitsMetric = System.getDeviceSettings().paceUnits == System.UNIT_METRIC;
-        //is24Hour = System.getDeviceSettings().is24Hour;
     }
     //! API functions
     
@@ -185,6 +154,9 @@ class HCUView extends Ui.DataField {
   	      	}
 		}  	      	
     }
+    
+//    function calcPaceAvg(info) {
+//    }
     
     function calcDistanceEnd(info) {
         if (info.elapsedDistance != null && info.elapsedDistance > 0) {
@@ -277,7 +249,7 @@ class HCUView extends Ui.DataField {
 		else {
 			txtVsOutline(100, 130, VALUE_FONT, displayHMS(millisecondsAheadBehind), CENTER, Gfx.COLOR_BLACK, dc, 1);
 		}
-		txtVsOutline(162,130, VALUE_FONT, getMinutesPerKmOrMile(computeAverageSpeed()), CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
+		txtVsOutline(162,130, VALUE_FONT, "pace", CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
 		
         txtVsOutline(60, 190, VALUE_FONT, displayHMS(estimatedFinnishTime), CENTER, Gfx.COLOR_BLACK, dc, 1);
         txtVsOutline(105,160, VALUE_FONT, distance, CENTER, Gfx.COLOR_BLUE, dc, 1); //temporary for debug
@@ -361,103 +333,4 @@ class HCUView extends Ui.DataField {
 //            var options = {:seconds => (info.elapsedTime / 1000)};
         }
     }
-
-    function calculateSpeed(speedMetersPerSecond) {
-        var kmOrMilesPerHour = speedMetersPerSecond * 3600.0 / (isSpeedUnitsMetric ? 1000 : 1610);
-        return kmOrMilesPerHour;
-    }
-
-	function computeAverageSpeed() {
-        var size = 0;
-        var data = paceData.getData();
-        var sumOfData = 0.0;
-        for (var i = 0; i < data.size(); i++) {
-            if (data[i] != null) {
-                sumOfData = sumOfData + data[i];
-                size++;
-            }
-        }
-        if (sumOfData > 0) {
-            return sumOfData / size;
-        }
-        return 0.0;
-    }
-
-	function compureAverageOneMinuteSpeed() {
-        var size = 0;
-        var data = paceDataOneMinute.getData();
-        var sumOfData = 0.0;
-        for (var i = 0; i < data.size(); i++) {
-            if (data[i] != null) {
-                sumOfData = sumOfData + data[i];
-                size++;
-            }
-        }
-        if (sumOfData > 0) {
-            return sumOfData / size;
-        }
-        return 0.0;
-    }
-
-    function getMinutesPerKmOrMile(speedMetersPerSecond) {
-        if (speedMetersPerSecond != null && speedMetersPerSecond > 0.2) {
-            var metersPerMinute = speedMetersPerSecond * 60.0;
-            var minutesPerKmOrMilesDecimal = (isDistanceUnitsMetric ? 1000 : 1610) / metersPerMinute;
-            var minutesPerKmOrMilesFloor = minutesPerKmOrMilesDecimal.toNumber();
-            var seconds = (minutesPerKmOrMilesDecimal - minutesPerKmOrMilesFloor) * 60;
-            return minutesPerKmOrMilesDecimal.format("%02d") + ":" + seconds.format("%02d");
-        }
-        return ZERO_TIME;
-    }
-
-    function calculateAsc(ascMeters) {
-        //return ascMeters / 1000;
-		return ascMeters;
-    }
-
-    function calculateAmPmHour(hour) {
-        if (hour == 0) {
-            return 12;
-        } else if (hour > 12) {
-            return hour - 12;
-        }
-        return hour;
-    }
-}
-//! A circular queue implementation.
-//! @author Konrad Paumann
-class DataQueue {
-
-    //! the data array.
-    hidden var data;
-    hidden var maxSize = 0;
-    hidden var pos = 0;
-
-    //! precondition: size has to be >= 2
-    function initialize(arraySize) {
-        data = new[arraySize];
-        maxSize = arraySize;
-    }
-    
-    //! Add an element to the queue.
-    function add(element) {
-        data[pos] = element;
-        pos = (pos + 1) % maxSize;
-    }
-    
-    //! Reset the queue to its initial state.
-    function reset() {
-        for (var i = 0; i < data.size(); i++) {
-            data[i] = null;
-        }
-        pos = 0;
-    }
-    
-    //! Get the underlying data array.
-    function getData() {
-        return data;
-    }
-
-
-
 }
