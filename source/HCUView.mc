@@ -40,6 +40,7 @@ class HCUView extends Ui.DataField {
     hidden var estimatedFinnishTime = 0; //Estimated finnish time in milliseconds 
     hidden var paceAvgDistance = [0,0,0,0,0,0,0,0,0,0];
     hidden var paceAvgTime = [0,0,0,0,0,0,0,0,0,0];
+    hidden var paceAvg = 0;
   
 
     function initialize() {
@@ -73,17 +74,18 @@ class HCUView extends Ui.DataField {
     function compute(info) {
         // See Activity.Info in the documentation for available information.       
     	hr = calcNullable(info.currentHeartRate, 0);
-        calculateDistance(info);
-        calculateElapsedTime(info);
         gpsSignal = info.currentLocationAccuracy;
-        currentControlStation = calcCurrentControlStation(info);
-		calcDistanceNextControlStation(info);
-		calcDistanceEnd(info);
-		calcCalculatedPlannedTime(info);
-		calcAheadBehind(info);
-		calcEstimatedFinnishTime(info);
 		//Debug info
-		if (info.elapsedDistance != null && info.elapsedDistance > 10) {
+		if (info.elapsedDistance != null && info.elapsedDistance > 10 && info.elapsedTime != null && info.elapsedTime > 2000) {
+	        calculateDistance(info);
+    	    calculateElapsedTime(info);
+        	currentControlStation = calcCurrentControlStation(info);
+			calcDistanceNextControlStation(info);
+			calcDistanceEnd(info);
+			calcCalculatedPlannedTime(info);
+			calcAheadBehind(info);
+			calcEstimatedFinnishTime(info);
+			calcPaceAvg(info);
 	        System.println("AheadBehind " + displayHMS(millisecondsAheadBehind) + " calculatedPlannedTime " + 
     	    displayHMS(calculatedPlannedTime) + " info.elapsedDistance " + info.elapsedDistance + " info.elapsedTime " + info.elapsedTime + 
         	" controlstationMaxTime " + controlstationMaxTime[currentControlStation] + " paceNextControlStation " + displayHMS(paceNextControlStation));
@@ -106,91 +108,89 @@ class HCUView extends Ui.DataField {
 
     //Functionality for ControlStations and distance, pace calculations
 	function calcCurrentControlStation(info) {
-        if (info.elapsedDistance != null && info.elapsedDistance > 0) {
-            if (info.elapsedDistance > controlstationDistance[currentControlStation] and currentControlStation < lastControlStation) {
-            	currentControlStation += 1;
-        	}        
+        if (info.elapsedDistance > controlstationDistance[currentControlStation] and currentControlStation < lastControlStation) {
+           	currentControlStation += 1;        
         }
         return currentControlStation;   
     }
     
     function calcCalculatedPlannedTime(info) {
-        if (info.elapsedDistance != null && info.elapsedDistance > 0) {
-            if (currentControlStation == 0) {
-            	calculatedPlannedTime =  info.elapsedDistance / controlstationPace[currentControlStation];
-            	//System.println(calculatedPlannedTime + " " + info.elapsedDistance + " " + info.elapsedTime);
-			}
-			else {
-				calculatedPlannedTime =  (info.elapsedDistance - controlstationDistance[currentControlStation]) / 
-				controlstationPace[currentControlStation] + controlstationMaxTime[currentControlStation - 1];
-			}
+        if (currentControlStation == 0) {
+         	calculatedPlannedTime =  info.elapsedDistance / controlstationPace[currentControlStation];
+           	//System.println(calculatedPlannedTime + " " + info.elapsedDistance + " " + info.elapsedTime);
+		}
+		else {
+			calculatedPlannedTime =  (info.elapsedDistance - controlstationDistance[currentControlStation]) / 
+			controlstationPace[currentControlStation] + controlstationMaxTime[currentControlStation - 1];
 		}  	      	
     }  
       
     function calcDistanceNextControlStation(info) {
-        if (info.elapsedDistance != null && info.elapsedDistance > 0) {
-            if ((controlstationDistance[currentControlStation] - info.elapsedDistance)>0) {
-            	if ((controlstationMaxTime[currentControlStation] - info.elapsedTime)>0) {
-	            	paceNextControlStation = (controlstationMaxTime[currentControlStation] - info.elapsedTime) / 
-	            	(controlstationDistance[currentControlStation] - info.elapsedDistance) * 1000;
-            	}
-            	var distanceNCSInUnit = (controlstationDistance[currentControlStation] - info.elapsedDistance) / 1000;
-	            var distanceNCSHigh = distanceNCSInUnit >= 10.0;
-    	        var distanceNCSVHigh = distanceNCSInUnit >= 100.0;
-        	    var distanceNCSFullString = distanceNCSInUnit.toString();
-	            var commaPos = distanceNCSFullString.find(".");
-    	        var floatNumber = 3;
-        	    if (distanceNCSHigh) {
-            		floatNumber = 2;
-	            }
-    	        if (distanceNCSVHigh) {
-        	    	floatNumber = 0;
-	        	}
-    	        distanceNextControlStation = distanceNCSFullString.substring(0, commaPos + floatNumber);
-  	      	}
-			else {
-  	      		distanceNextControlStation = " ";
-  	      		paceNextControlStation = " ";
-  	      	}
+         if ((controlstationDistance[currentControlStation] - info.elapsedDistance)>0) {
+           	if ((controlstationMaxTime[currentControlStation] - info.elapsedTime)>0) {
+            	paceNextControlStation = (controlstationMaxTime[currentControlStation] - info.elapsedTime) / 
+            	(controlstationDistance[currentControlStation] - info.elapsedDistance) * 1000;
+           	}
+           	var distanceNCSInUnit = (controlstationDistance[currentControlStation] - info.elapsedDistance) / 1000;
+            var distanceNCSHigh = distanceNCSInUnit >= 10.0;
+   	        var distanceNCSVHigh = distanceNCSInUnit >= 100.0;
+       	    var distanceNCSFullString = distanceNCSInUnit.toString();
+            var commaPos = distanceNCSFullString.find(".");
+   	        var floatNumber = 3;
+       	    if (distanceNCSHigh) {
+           		floatNumber = 2;
+            }
+   	        if (distanceNCSVHigh) {
+       	    	floatNumber = 0;
+        	}
+   	        distanceNextControlStation = distanceNCSFullString.substring(0, commaPos + floatNumber);
+      	}
+		else {
+      		distanceNextControlStation = " ";
+       		paceNextControlStation = " ";
 		}  	      	
     }
     
-//    function calcPaceAvg(info) {
-//    }
+    function calcPaceAvg(info) {
+    	paceAvg = (info.elapsedTime - paceAvgTime[0]) / 
+    	(info.elapsedDistance - paceAvgDistance[0]) * 1000;
+    	if (info.elapsedTime > paceAvgTime[9] + 30000) {
+    		for (var i = 0; i < 9; i++) {
+    			paceAvgTime[i] = paceAvgTime[i+1];
+    			paceAvgDistance[i] = paceAvgDistance[i+1]; 
+    		}
+    		paceAvgTime[9] = info.elapsedTime;
+    		paceAvgDistance[9] = info.elapsedDistance;
+    	}
+    }
     
     function calcDistanceEnd(info) {
-        if (info.elapsedDistance != null && info.elapsedDistance > 0) {
-            if ((controlstationDistance[lastControlStation] - info.elapsedDistance)>0) {
-            	var distanceEndInUnit = (controlstationDistance[lastControlStation] - info.elapsedDistance) / 1000;
-	            var distanceEndHigh = distanceEndInUnit >= 10.0;
-    	        var distanceEndVHigh = distanceEndInUnit >= 100.0;
-        	    var distanceEndFullString = distanceEndInUnit.toString();
-	            var commaPos = distanceEndFullString.find(".");
-    	        var floatNumber = 3;
-        	    if (distanceEndHigh) {
-            		floatNumber = 2;
-	            }
-    	        if (distanceEndVHigh) {
-        	    	floatNumber = 0;
-	        	}
-    	        distanceEnd = distanceEndFullString.substring(0, commaPos + floatNumber);
-  	      	}
-			else {
-  	      		distanceEnd = " ";
-  	      	}
+         if ((controlstationDistance[lastControlStation] - info.elapsedDistance)>0) {
+           	var distanceEndInUnit = (controlstationDistance[lastControlStation] - info.elapsedDistance) / 1000;
+            var distanceEndHigh = distanceEndInUnit >= 10.0;
+   	        var distanceEndVHigh = distanceEndInUnit >= 100.0;
+       	    var distanceEndFullString = distanceEndInUnit.toString();
+            var commaPos = distanceEndFullString.find(".");
+   	        var floatNumber = 3;
+       	    if (distanceEndHigh) {
+           		floatNumber = 2;
+            }
+   	        if (distanceEndVHigh) {
+       	    	floatNumber = 0;
+        	}
+   	        distanceEnd = distanceEndFullString.substring(0, commaPos + floatNumber);
+      	}
+		else {
+      		distanceEnd = " ";
 		}  	      	
     }
     
     function calcAheadBehind(info) {
-        if (info.elapsedTime != null && info.elapsedTime != 0) {
-            millisecondsAheadBehind = calculatedPlannedTime - info.elapsedTime;
-		} 
+        millisecondsAheadBehind = calculatedPlannedTime - info.elapsedTime;
     }
     
     function calcEstimatedFinnishTime(info) {
-    	if (info.elapsedDistance != null && info.elapsedDistance != 0) {
-    		estimatedFinnishTime = controlstationMaxTime[lastControlStation] - (millisecondsAheadBehind / info.elapsedDistance * controlstationDistance[lastControlStation]);
-    	}
+   		estimatedFinnishTime = controlstationMaxTime[lastControlStation] - (millisecondsAheadBehind / info.elapsedDistance * controlstationDistance[lastControlStation]);
 	}
     
     function displayHMS(milliseconds) {
@@ -249,7 +249,7 @@ class HCUView extends Ui.DataField {
 		else {
 			txtVsOutline(100, 130, VALUE_FONT, displayHMS(millisecondsAheadBehind), CENTER, Gfx.COLOR_BLACK, dc, 1);
 		}
-		txtVsOutline(162,130, VALUE_FONT, "pace", CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
+		txtVsOutline(162,130, VALUE_FONT, displayHMS(paceAvg), CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
 		
         txtVsOutline(60, 190, VALUE_FONT, displayHMS(estimatedFinnishTime), CENTER, Gfx.COLOR_BLACK, dc, 1);
         txtVsOutline(105,160, VALUE_FONT, distance, CENTER, Gfx.COLOR_BLUE, dc, 1); //temporary for debug
@@ -297,40 +297,36 @@ class HCUView extends Ui.DataField {
 	}
 
     function calculateDistance(info) {
-        if (info.elapsedDistance != null && info.elapsedDistance > 0) {
-            var distanceInUnit = info.elapsedDistance / 1000;
-            var distanceHigh = distanceInUnit >= 10.0;
-            var distanceVHigh = distanceInUnit >= 100.0;
-            var distanceFullString = distanceInUnit.toString();
-            var commaPos = distanceFullString.find(".");
-            var floatNumber = 3;
-            if (distanceHigh) {
-            	floatNumber = 2;
-            }
-            if (distanceVHigh) {
-            	floatNumber = 0;
-        	}
-            distance = distanceFullString.substring(0, commaPos + floatNumber);
+        var distanceInUnit = info.elapsedDistance / 1000;
+        var distanceHigh = distanceInUnit >= 10.0;
+        var distanceVHigh = distanceInUnit >= 100.0;
+        var distanceFullString = distanceInUnit.toString();
+        var commaPos = distanceFullString.find(".");
+        var floatNumber = 3;
+        if (distanceHigh) {
+          	floatNumber = 2;
         }
+        if (distanceVHigh) {
+           	floatNumber = 0;
+       	}
+        distance = distanceFullString.substring(0, commaPos + floatNumber);
     }
     
     function calculateElapsedTime(info) {
-        if (info.elapsedTime != null && info.elapsedTime > 0) {
-            var hours = null;
-            var minutes = info.elapsedTime / 1000 / 60;
-            var seconds = info.elapsedTime / 1000 % 60;
-            
-            if (minutes >= 60) {
-                hours = minutes / 60;
-                minutes = minutes % 60;
-            }
-            
-            if (hours == null) {
-                elapsedTime = minutes.format("%02d") + ":" + seconds.format("%02d");
-            } else {
-                elapsedTime = hours.format("%02d") + ":" + minutes.format("%02d");// + ":" + seconds.format("%02d");
-            }
-//            var options = {:seconds => (info.elapsedTime / 1000)};
+        var hours = null;
+        var minutes = info.elapsedTime / 1000 / 60;
+        var seconds = info.elapsedTime / 1000 % 60;
+           
+        if (minutes >= 60) {
+            hours = minutes / 60;
+            minutes = minutes % 60;
+        }
+           
+        if (hours == null) {
+            elapsedTime = minutes.format("%02d") + ":" + seconds.format("%02d");
+        } 
+        else {
+            elapsedTime = hours.format("%02d") + ":" + minutes.format("%02d");// + ":" + seconds.format("%02d");
         }
     }
 }
