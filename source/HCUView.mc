@@ -9,7 +9,7 @@ var model;
 class HCUView extends Ui.DataField {
     hidden const CENTER = Gfx.TEXT_JUSTIFY_CENTER | Gfx.TEXT_JUSTIFY_VCENTER;
     hidden const HEADER_FONT = Gfx.FONT_XTINY;
-    hidden const VALUE_FONT = Gfx.FONT_NUMBER_MILD;
+    hidden const VALUE_FONT = Gfx.FONT_NUMBER_MEDIUM;
 	//hidden const VALUE_FONT = Gfx.FONT_MEDIUM;
     hidden const ZERO_TIME = "0:00";
 
@@ -33,7 +33,7 @@ class HCUView extends Ui.DataField {
     hidden var lastControlStation = 4;	
     hidden var distanceNextControlStation = 0;
     hidden var paceNextControlStation = 0; // in milliseconds per kilometer
-    hidden var distanceEnd = 0;
+    hidden var distanceEnd = controlstationDistance[lastControlStation]/1000;
     hidden var calculatedPlannedTime = 0; // calculated curent time at current position using controlstationPace in milliseconds
     hidden var millisecondsAheadBehind = 0;
     hidden var controlstationPace; //the max pace for the segment
@@ -42,6 +42,7 @@ class HCUView extends Ui.DataField {
     hidden var paceAvgTime = [0,0,0,0,0,0,0,0,0,0];
     hidden var paceAvg = 0;
     hidden var nextCalcTime = 10000;
+    hidden var percentDone = 0;
   
 
     function initialize() {
@@ -90,6 +91,7 @@ class HCUView extends Ui.DataField {
         	System.println("AheadBehind " + displayHMS(millisecondsAheadBehind) + " calculatedPlannedTime " + 
    	    	displayHMS(calculatedPlannedTime) + " info.elapsedDistance " + info.elapsedDistance + " info.elapsedTime " + info.elapsedTime + 
        		" controlstationMaxTime " + controlstationMaxTime[currentControlStation] + " paceNextControlStation " + displayHMS(paceNextControlStation));
+			percentDone = info.elapsedDistance / controlstationMaxTime[lastControlStation];
 			nextCalcTime = info.elapsedTime + 10000;	
 		}
     }
@@ -100,7 +102,8 @@ class HCUView extends Ui.DataField {
         draw(dc);
         drawGrid(dc);
         drawGps(dc);
-        drawBattery(dc);    
+        drawBattery(dc); 
+        drawDone(dc);   
     }
     //! API functions
     
@@ -219,44 +222,49 @@ class HCUView extends Ui.DataField {
     function drawGrid(dc) {
         setColor(dc, Gfx.COLOR_YELLOW);
         dc.setPenWidth(1);
-		dc.drawLine(0, 35, dc.getWidth(), 35);
-		dc.drawLine(0, 95, dc.getWidth(), 95);
-		dc.drawLine(0, 160, dc.getWidth(), 160);  
+		dc.drawLine(0, 31, dc.getWidth(), 31);
+		dc.drawLine(0, 91, dc.getWidth(), 91);
+		dc.drawLine(0, 150, dc.getWidth(), 150);  
         dc.setPenWidth(1);    
     }
     function draw(dc) {
         setColor(dc, Gfx.COLOR_DK_GRAY);
 
-        dc.drawText(60, 43, HEADER_FONT, "NC Dist", CENTER);
-        dc.drawText(150, 43, HEADER_FONT, "NC Pace", CENTER);
+        dc.drawText(60, 40, HEADER_FONT, "NC Dist", CENTER);
+        dc.drawText(150, 40, HEADER_FONT, "NC Pace", CENTER);
         
-        dc.drawText(30, 103, HEADER_FONT, "HR", CENTER);
-        dc.drawText(100, 103, HEADER_FONT, "AHD/BHD", CENTER);
-        dc.drawText(172,103, HEADER_FONT, "Cur Pace", CENTER);
+        dc.drawText(30, 99, HEADER_FONT, "HR", CENTER);
+        dc.drawText(95,99, HEADER_FONT, "AHD/BHD", CENTER);
+        dc.drawText(172,99, HEADER_FONT, "Cur Pace", CENTER);
 
-        dc.drawText(60, 168, HEADER_FONT, "ETF", CENTER);
-        dc.drawText(162,168, HEADER_FONT, "Dist Rem", CENTER);
+        dc.drawText(75, 156, HEADER_FONT, "ETF", CENTER);
+        dc.drawText(145,156, HEADER_FONT, "Dist Rem", CENTER);
         
         setColor(dc, Gfx.COLOR_BLACK);
 
-        dc.drawText(110, 20, VALUE_FONT, controlstationName[currentControlStation], CENTER);
+        dc.drawText(110, 20, Gfx.FONT_TINY, controlstationName[currentControlStation], CENTER);
 
-        txtVsOutline(60, 65, VALUE_FONT, distanceNextControlStation, CENTER, Gfx.COLOR_BLACK, dc, 1);
-        txtVsOutline(150, 65, VALUE_FONT, displayHMS(paceNextControlStation), CENTER, Gfx.COLOR_BLACK, dc, 1);
+        txtVsOutline(60, 64, VALUE_FONT, distanceNextControlStation, CENTER, Gfx.COLOR_BLACK, dc, 1);
+        txtVsOutline(150, 64, VALUE_FONT, displayHMS(paceNextControlStation), CENTER, Gfx.COLOR_BLACK, dc, 1);
 
-   		txtVsOutline(30, 130, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
+   		txtVsOutline(28, 124, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
    		if (millisecondsAheadBehind < 0) {
-			txtVsOutline(100, 130, VALUE_FONT, displayHMS(-millisecondsAheadBehind), CENTER, Gfx.COLOR_RED, dc, 1);
+			txtVsOutline(96, 124, VALUE_FONT, displayHMS(-millisecondsAheadBehind), CENTER, Gfx.COLOR_RED, dc, 1);
 		}
 		else {
-			txtVsOutline(100, 130, VALUE_FONT, displayHMS(millisecondsAheadBehind), CENTER, Gfx.COLOR_BLACK, dc, 1);
+			txtVsOutline(96, 124, VALUE_FONT, displayHMS(millisecondsAheadBehind), CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
 		}
-		txtVsOutline(162,130, VALUE_FONT, displayHMS(paceAvg), CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
+		if (paceAvg > paceNextControlStation) {
+			txtVsOutline(176,124, VALUE_FONT, displayHMS(paceAvg), CENTER, Gfx.COLOR_RED, dc, 1);
+		}
+		else {
+			txtVsOutline(176,124, VALUE_FONT, displayHMS(paceAvg), CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
+		}
 		
-        txtVsOutline(60, 190, VALUE_FONT, displayHMS(estimatedFinnishTime), CENTER, Gfx.COLOR_BLACK, dc, 1);
-        txtVsOutline(105,160, VALUE_FONT, distance, CENTER, Gfx.COLOR_BLUE, dc, 1); //temporary for debug
-        txtVsOutline(105,190, VALUE_FONT, elapsedTime, CENTER, Gfx.COLOR_BLUE, dc, 1); //temporary for debug
-        txtVsOutline(150,190, VALUE_FONT, distanceEnd, CENTER, Gfx.COLOR_BLACK, dc, 1);
+        txtVsOutline(75, 180, VALUE_FONT, displayHMS(estimatedFinnishTime), CENTER, Gfx.COLOR_BLACK, dc, 1);
+        //txtVsOutline(105,160, VALUE_FONT, distance, CENTER, Gfx.COLOR_BLUE, dc, 1); //temporary for debug
+        //txtVsOutline(105,190, VALUE_FONT, elapsedTime, CENTER, Gfx.COLOR_BLUE, dc, 1); //temporary for debug
+        txtVsOutline(140,180, VALUE_FONT, distanceEnd, CENTER, Gfx.COLOR_BLACK, dc, 1);
     }
 
     function txtVsOutline(x, y, font, text, pos, color, dc, delta) {
@@ -274,20 +282,28 @@ class HCUView extends Ui.DataField {
     }
 
     function drawGps(dc) {
-        var yStart = 34;
+        var yStart = 31;
         var xStart = 20;
 
        setColor(dc, Gfx.COLOR_DK_GREEN);
-		dc.fillRectangle(xStart, yStart , 170 * gpsSignal / 4, 3); 
+		dc.fillRectangle(xStart, yStart , 169 * gpsSignal / 4, 3); 
 		
    }
     
     function drawBattery(dc) {
-        var yStart = 94;
+        var yStart = 90;
         var xStart = 1;
 
        setColor(dc, Gfx.COLOR_DK_GREEN);
 		dc.fillRectangle(xStart, yStart , 216 * System.getSystemStats().battery / 100, 3);        
+    }
+    
+    function drawDone(dc) {
+        var yStart = 149;
+        var xStart = 8;
+
+      	setColor(dc, Gfx.COLOR_DK_GREEN);
+		dc.fillRectangle(xStart, yStart , 202 * percentDone , 3);        
     }
 
 	function calcNullable(nullableValue, defaultValue) {
