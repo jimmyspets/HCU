@@ -225,7 +225,10 @@ class HCUView extends Ui.DataField {
 		dc.drawLine(0, 31, dc.getWidth(), 31);
 		dc.drawLine(0, 91, dc.getWidth(), 91);
 		dc.drawLine(0, 150, dc.getWidth(), 150);  
-        dc.setPenWidth(1);    
+		dc.drawLine(105, 31, 105, 91);  
+		dc.drawLine(57, 91, 57, 150);  
+		dc.drawLine(135, 91, 135, 150);  
+		dc.drawLine(105, 150, 105, dc.getHeight());  
     }
     function draw(dc) {
         setColor(dc, Gfx.COLOR_DK_GRAY);
@@ -237,8 +240,8 @@ class HCUView extends Ui.DataField {
         dc.drawText(95,99, HEADER_FONT, "AHD/BHD", CENTER);
         dc.drawText(172,99, HEADER_FONT, "Cur Pace", CENTER);
 
-        dc.drawText(75, 156, HEADER_FONT, "ETF", CENTER);
-        dc.drawText(145,156, HEADER_FONT, "Dist Rem", CENTER);
+        dc.drawText(75, 199, HEADER_FONT, "Rem", CENTER);
+        dc.drawText(145,199, HEADER_FONT, "ETF", CENTER);
         
         setColor(dc, Gfx.COLOR_BLACK);
 
@@ -261,10 +264,10 @@ class HCUView extends Ui.DataField {
 			txtVsOutline(176,124, VALUE_FONT, displayHMS(paceAvg), CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
 		}
 		
-        txtVsOutline(75, 180, VALUE_FONT, displayHMS(estimatedFinnishTime), CENTER, Gfx.COLOR_BLACK, dc, 1);
+        txtVsOutline(70, 170, VALUE_FONT, distanceEnd, CENTER, Gfx.COLOR_BLACK, dc, 1);
         //txtVsOutline(105,160, VALUE_FONT, distance, CENTER, Gfx.COLOR_BLUE, dc, 1); //temporary for debug
         //txtVsOutline(105,190, VALUE_FONT, elapsedTime, CENTER, Gfx.COLOR_BLUE, dc, 1); //temporary for debug
-        txtVsOutline(140,180, VALUE_FONT, distanceEnd, CENTER, Gfx.COLOR_BLACK, dc, 1);
+        txtVsOutline(145,170, VALUE_FONT, displayHMS(estimatedFinnishTime), CENTER, Gfx.COLOR_BLACK, dc, 1);
     }
 
     function txtVsOutline(x, y, font, text, pos, color, dc, delta) {
