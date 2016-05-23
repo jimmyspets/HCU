@@ -106,13 +106,14 @@ class HCUView extends Ui.DataField {
 		calcDistanceNextControlStation(info);
 		calcDistanceEnd(info);
 		calcCalculatedPlannedTime(info);
-//		System.println (calculatedPlannedTime + " " + info.elapsedDistance + " " + info.elapsedTime + " " + distanceEnd);
 		calcAheadBehind(info);
 		calcEstimatedFinnishTime(info);
-        System.println("AheadBehind " + displayHMS(millisecondsAheadBehind) + " calculatedPlannedTime " + 
-        displayHMS(calculatedPlannedTime) + " info.elapsedDistance " + info.elapsedDistance + " info.elapsedTime " + info.elapsedTime + 
-        " controlstationMaxTime " + controlstationMaxTime[currentControlStation] + " paceNextControlStation " + displayHMS(paceNextControlStation));
-		
+		//Debug info
+		if (info.elapsedDistance != null && info.elapsedDistance > 10) {
+	        System.println("AheadBehind " + displayHMS(millisecondsAheadBehind) + " calculatedPlannedTime " + 
+    	    displayHMS(calculatedPlannedTime) + " info.elapsedDistance " + info.elapsedDistance + " info.elapsedTime " + info.elapsedTime + 
+        	" controlstationMaxTime " + controlstationMaxTime[currentControlStation] + " paceNextControlStation " + displayHMS(paceNextControlStation));
+		}
     }
 
     //! Display the value you computed here. This will be called
@@ -270,7 +271,12 @@ class HCUView extends Ui.DataField {
         txtVsOutline(150, 65, VALUE_FONT, displayHMS(paceNextControlStation), CENTER, Gfx.COLOR_BLACK, dc, 1);
 
    		txtVsOutline(30, 130, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
-		txtVsOutline(100, 130, VALUE_FONT, displayHMS(millisecondsAheadBehind), CENTER, Gfx.COLOR_BLACK, dc, 1);
+   		if (millisecondsAheadBehind < 0) {
+			txtVsOutline(100, 130, VALUE_FONT, displayHMS(-millisecondsAheadBehind), CENTER, Gfx.COLOR_RED, dc, 1);
+		}
+		else {
+			txtVsOutline(100, 130, VALUE_FONT, displayHMS(millisecondsAheadBehind), CENTER, Gfx.COLOR_BLACK, dc, 1);
+		}
 		txtVsOutline(162,130, VALUE_FONT, getMinutesPerKmOrMile(computeAverageSpeed()), CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
 		
         txtVsOutline(60, 190, VALUE_FONT, displayHMS(estimatedFinnishTime), CENTER, Gfx.COLOR_BLACK, dc, 1);
