@@ -27,10 +27,10 @@ class HCUView extends Ui.DataField {
     
     //Configuration of control stations
     hidden var controlstationName = ["Kopmannaholmen","Skuleberget","Nordingra","Fjardbotten","Horno"];
-//HCU    hidden var controlstationDistance = [30000,54000,84000,109000,129000]; //distance in meters
-//HCU    hidden var controlstationMaxTime = [18000000,37800000,55800000,75600000,93600000]; //max time in milliseconds
-    hidden var controlstationDistance = [300,540,840,1090,1290]; //distance in meters
-    hidden var controlstationMaxTime = [180000,378000,558000,756000,936000]; //max time in milliseconds
+    hidden var controlstationDistance = [30000,54000,84000,109000,129000]; //distance in meters
+    hidden var controlstationMaxTime = [18000000,37800000,55800000,75600000,93600000]; //max time in milliseconds
+//    hidden var controlstationDistance = [300,540,840,1090,1290]; //distance in meters
+//    hidden var controlstationMaxTime = [180000,378000,558000,756000,936000]; //max time in milliseconds
     hidden var currentControlStation = 0;
     hidden var lastControlStation = 4;	
     hidden var distanceNextControlStation = controlstationDistance[0]/1000;
@@ -101,10 +101,13 @@ class HCUView extends Ui.DataField {
 			else {
 				displayMillisecondsAheadBehind = " ";
 				estimatedFinnishTime = " ";
+				distanceEnd = 0;
+				distanceNextControlStation = 0;
+				
 			}
-        	System.println("Last cont dist " + controlstationDistance[lastControlStation] + " calculatedPlannedTime " + 
-   	    	displayHMS(calculatedPlannedTime) + " info.elapsedDistance " + info.elapsedDistance + " info.elapsedTime " + info.elapsedTime + 
-       		" controlstationMaxTime " + controlstationMaxTime[currentControlStation] + " paceNextControlStation " + paceNextControlStation);
+//        	System.println("Last cont dist " + controlstationDistance[lastControlStation] + " calculatedPlannedTime " + 
+//   	    	displayHMS(calculatedPlannedTime) + " info.elapsedDistance " + info.elapsedDistance + " info.elapsedTime " + info.elapsedTime + 
+//       		" controlstationMaxTime " + controlstationMaxTime[currentControlStation] + " paceNextControlStation " + paceNextControlStation);
 			
 			nextCalcTime = info.elapsedTime + 10000;	
 		}
