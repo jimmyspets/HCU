@@ -27,22 +27,27 @@ class HCUView extends Ui.DataField {
     
     //Configuration of control stations
     hidden var controlstationName = ["Kopmannaholmen","Skuleberget","Nordingra","Fjardbotten","Horno"];
-    hidden var controlstationDistance = [30000,54000,84000,109000,129000]; //distance in meters
-    hidden var controlstationMaxTime = [18000000,37800000,55800000,75600000,93600000]; //max time in milliseconds
+//HCU    hidden var controlstationDistance = [30000,54000,84000,109000,129000]; //distance in meters
+//HCU    hidden var controlstationMaxTime = [18000000,37800000,55800000,75600000,93600000]; //max time in milliseconds
+    hidden var controlstationDistance = [300,540,840,1090,1290]; //distance in meters
+    hidden var controlstationMaxTime = [180000,378000,558000,756000,936000]; //max time in milliseconds
     hidden var currentControlStation = 0;
     hidden var lastControlStation = 4;	
-    hidden var distanceNextControlStation = 0;
+    hidden var distanceNextControlStation = controlstationDistance[0]/1000;
     hidden var paceNextControlStation = 0; // in milliseconds per kilometer
     hidden var distanceEnd = controlstationDistance[lastControlStation]/1000;
     hidden var calculatedPlannedTime = 0; // calculated curent time at current position using controlstationPace in milliseconds
     hidden var millisecondsAheadBehind = 0;
     hidden var controlstationPace; //the max pace for the segment
-    hidden var estimatedFinnishTime = 0; //Estimated finnish time in milliseconds 
+    hidden var estimatedFinnishTime = " "; //Estimated finnish time 
     hidden var paceAvgDistance = [0,0,0,0,0,0,0,0,0,0];
     hidden var paceAvgTime = [0,0,0,0,0,0,0,0,0,0];
     hidden var paceAvg = 0;
     hidden var nextCalcTime = 10000;
     hidden var percentDone = 0;
+    hidden var displayPaceNextControlStation = " ";
+    hidden var displayMillisecondsAheadBehind = " ";
+    hidden var displayPaceAvg = " ";
   
 
     function initialize() {
@@ -79,19 +84,28 @@ class HCUView extends Ui.DataField {
         gpsSignal = info.currentLocationAccuracy;
 		//Debug info
 		if (info.elapsedDistance != null && info.elapsedDistance > 10 && info.elapsedTime != null && info.elapsedTime >= nextCalcTime) {
-        	calculateDistance(info);
-   	    	calculateElapsedTime(info);
-       		currentControlStation = calcCurrentControlStation(info);
-			calcDistanceNextControlStation(info);
-			calcDistanceEnd(info);
-			calcCalculatedPlannedTime(info);
-			calcAheadBehind(info);
-			calcEstimatedFinnishTime(info);
 			calcPaceAvg(info);
-        	System.println("AheadBehind " + displayHMS(millisecondsAheadBehind) + " calculatedPlannedTime " + 
+        	if (info.elapsedDistance < controlstationDistance[lastControlStation]) {
+	        	calculateDistance(info);
+   		    	calculateElapsedTime(info);
+       			currentControlStation = calcCurrentControlStation(info);
+				calcDistanceNextControlStation(info);
+				calcDistanceEnd(info);
+				calcCalculatedPlannedTime(info);
+				calcAheadBehind(info);
+				calcEstimatedFinnishTime(info);
+				displayMillisecondsAheadBehind = displayHMS(millisecondsAheadBehind);
+				displayPaceAvg = displayHMS(paceAvg);
+				percentDone = info.elapsedDistance / controlstationMaxTime[lastControlStation];
+			}
+			else {
+				displayMillisecondsAheadBehind = " ";
+				estimatedFinnishTime = " ";
+			}
+        	System.println("Last cont dist " + controlstationDistance[lastControlStation] + " calculatedPlannedTime " + 
    	    	displayHMS(calculatedPlannedTime) + " info.elapsedDistance " + info.elapsedDistance + " info.elapsedTime " + info.elapsedTime + 
-       		" controlstationMaxTime " + controlstationMaxTime[currentControlStation] + " paceNextControlStation " + displayHMS(paceNextControlStation));
-			percentDone = info.elapsedDistance / controlstationMaxTime[lastControlStation];
+       		" controlstationMaxTime " + controlstationMaxTime[currentControlStation] + " paceNextControlStation " + paceNextControlStation);
+			
 			nextCalcTime = info.elapsedTime + 10000;	
 		}
     }
@@ -125,7 +139,7 @@ class HCUView extends Ui.DataField {
            	//System.println(calculatedPlannedTime + " " + info.elapsedDistance + " " + info.elapsedTime);
 		}
 		else {
-			calculatedPlannedTime =  (info.elapsedDistance - controlstationDistance[currentControlStation]) / 
+			calculatedPlannedTime =  (info.elapsedDistance - controlstationDistance[currentControlStation -1]) / 
 			controlstationPace[currentControlStation] + controlstationMaxTime[currentControlStation - 1];
 		}  	      	
     }  
@@ -135,6 +149,12 @@ class HCUView extends Ui.DataField {
            	if ((controlstationMaxTime[currentControlStation] - info.elapsedTime)>0) {
             	paceNextControlStation = (controlstationMaxTime[currentControlStation] - info.elapsedTime) / 
             	(controlstationDistance[currentControlStation] - info.elapsedDistance) * 1000;
+            	if (paceNextControlStation < 3600000) {        	
+	            	displayPaceNextControlStation = displayHMS(paceNextControlStation);
+            	}
+            	else {
+            		displayPaceNextControlStation = " ";
+        		}
            	}
            	var distanceNCSInUnit = (controlstationDistance[currentControlStation] - info.elapsedDistance) / 1000;
             var distanceNCSHigh = distanceNCSInUnit >= 10.0;
@@ -151,8 +171,9 @@ class HCUView extends Ui.DataField {
    	        distanceNextControlStation = distanceNCSFullString.substring(0, commaPos + floatNumber);
       	}
 		else {
-      		distanceNextControlStation = " ";
-       		paceNextControlStation = " ";
+      		distanceNextControlStation = 0;
+       		paceNextControlStation = 0;
+       		displayPaceNextControlStation = " ";
 		}  	      	
     }
     
@@ -195,12 +216,16 @@ class HCUView extends Ui.DataField {
     }
     
     function calcEstimatedFinnishTime(info) {
-   		estimatedFinnishTime = controlstationMaxTime[lastControlStation] - (millisecondsAheadBehind / info.elapsedDistance * controlstationDistance[lastControlStation]);
+   		estimatedFinnishTime = displayHMS(controlstationMaxTime[lastControlStation] - 
+   		(millisecondsAheadBehind / info.elapsedDistance * controlstationDistance[lastControlStation]));
 	}
     
     function displayHMS(milliseconds) {
         if (milliseconds != null) {
         	var millisecondsInt = milliseconds.toNumber();
+        	if (millisecondsInt < 0) {
+        		millisecondsInt = -milliseconds.toNumber();
+    		}
             var hours = null;
             var minutes = millisecondsInt / 1000 / 60;
             var seconds = millisecondsInt / 1000 % 60;
@@ -248,26 +273,26 @@ class HCUView extends Ui.DataField {
         dc.drawText(110, 20, Gfx.FONT_TINY, controlstationName[currentControlStation], CENTER);
 
         txtVsOutline(60, 64, VALUE_FONT, distanceNextControlStation, CENTER, Gfx.COLOR_BLACK, dc, 1);
-        txtVsOutline(150, 64, VALUE_FONT, displayHMS(paceNextControlStation), CENTER, Gfx.COLOR_BLACK, dc, 1);
+        txtVsOutline(150, 64, VALUE_FONT, displayPaceNextControlStation, CENTER, Gfx.COLOR_BLACK, dc, 1);
 
    		txtVsOutline(28, 124, VALUE_FONT, hr.format("%d"), CENTER, Gfx.COLOR_BLACK, dc, 1);
    		if (millisecondsAheadBehind < 0) {
-			txtVsOutline(96, 124, VALUE_FONT, displayHMS(-millisecondsAheadBehind), CENTER, Gfx.COLOR_RED, dc, 1);
+			txtVsOutline(96, 124, VALUE_FONT, displayMillisecondsAheadBehind, CENTER, Gfx.COLOR_RED, dc, 1);
 		}
 		else {
-			txtVsOutline(96, 124, VALUE_FONT, displayHMS(millisecondsAheadBehind), CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
+			txtVsOutline(96, 124, VALUE_FONT, displayMillisecondsAheadBehind, CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
 		}
 		if (paceAvg > paceNextControlStation) {
-			txtVsOutline(176,124, VALUE_FONT, displayHMS(paceAvg), CENTER, Gfx.COLOR_RED, dc, 1);
+			txtVsOutline(176,124, VALUE_FONT, displayPaceAvg, CENTER, Gfx.COLOR_RED, dc, 1);
 		}
 		else {
-			txtVsOutline(176,124, VALUE_FONT, displayHMS(paceAvg), CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
+			txtVsOutline(176,124, VALUE_FONT, displayPaceAvg, CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
 		}
 		
         txtVsOutline(70, 170, VALUE_FONT, distanceEnd, CENTER, Gfx.COLOR_BLACK, dc, 1);
         //txtVsOutline(105,160, VALUE_FONT, distance, CENTER, Gfx.COLOR_BLUE, dc, 1); //temporary for debug
         //txtVsOutline(105,190, VALUE_FONT, elapsedTime, CENTER, Gfx.COLOR_BLUE, dc, 1); //temporary for debug
-        txtVsOutline(145,170, VALUE_FONT, displayHMS(estimatedFinnishTime), CENTER, Gfx.COLOR_BLACK, dc, 1);
+        txtVsOutline(145,170, VALUE_FONT, estimatedFinnishTime, CENTER, Gfx.COLOR_BLACK, dc, 1);
     }
 
     function txtVsOutline(x, y, font, text, pos, color, dc, delta) {
