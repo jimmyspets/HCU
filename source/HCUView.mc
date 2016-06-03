@@ -29,8 +29,8 @@ class HCUView extends Ui.DataField {
     hidden var controlstationName = ["Kopmannaholmen","Skuleberget","Nordingra","Fjardbotten","Horno"];
     hidden var controlstationDistance = [30000,54000,84000,109000,129000]; //distance in meters
     hidden var controlstationMaxTime = [18000000,37800000,55800000,75600000,93600000]; //max time in milliseconds
-//    hidden var controlstationDistance = [300,540,840,1090,1290]; //distance in meters
-//    hidden var controlstationMaxTime = [180000,378000,558000,756000,936000]; //max time in milliseconds
+//    hidden var controlstationDistance = [3000,5400,8400,10900,12900]; //distance in meters
+//    hidden var controlstationMaxTime = [1800000,3780000,5580000,7560000,9360000]; //max time in milliseconds
     hidden var currentControlStation = 0;
     hidden var lastControlStation = 4;	
     hidden var distanceNextControlStation = controlstationDistance[0]/1000;
@@ -96,7 +96,7 @@ class HCUView extends Ui.DataField {
 				calcEstimatedFinnishTime(info);
 				displayMillisecondsAheadBehind = displayHMS(millisecondsAheadBehind);
 				displayPaceAvg = displayHMS(paceAvg);
-				percentDone = info.elapsedDistance / controlstationMaxTime[lastControlStation];
+				percentDone = info.elapsedDistance / controlstationDistance[lastControlStation];
 			}
 			else {
 				displayMillisecondsAheadBehind = " ";
@@ -105,6 +105,7 @@ class HCUView extends Ui.DataField {
 				distanceNextControlStation = 0;
 				
 			}
+//			System.println("PercentDone " + percentDone);
 //        	System.println("Last cont dist " + controlstationDistance[lastControlStation] + " calculatedPlannedTime " + 
 //   	    	displayHMS(calculatedPlannedTime) + " info.elapsedDistance " + info.elapsedDistance + " info.elapsedTime " + info.elapsedTime + 
 //       		" controlstationMaxTime " + controlstationMaxTime[currentControlStation] + " paceNextControlStation " + paceNextControlStation);
@@ -269,7 +270,7 @@ class HCUView extends Ui.DataField {
         dc.drawText(172,99, HEADER_FONT, "Cur Pace", CENTER);
 
         dc.drawText(75, 199, HEADER_FONT, "Rem", CENTER);
-        dc.drawText(145,199, HEADER_FONT, "ETF", CENTER);
+        dc.drawText(145,199, HEADER_FONT, "EFT", CENTER);
         
         setColor(dc, Gfx.COLOR_BLACK);
 
@@ -283,13 +284,13 @@ class HCUView extends Ui.DataField {
 			txtVsOutline(96, 124, VALUE_FONT, displayMillisecondsAheadBehind, CENTER, Gfx.COLOR_RED, dc, 1);
 		}
 		else {
-			txtVsOutline(96, 124, VALUE_FONT, displayMillisecondsAheadBehind, CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
+			txtVsOutline(96, 124, VALUE_FONT, displayMillisecondsAheadBehind, CENTER, Gfx.COLOR_BLACK, dc, 1);
 		}
 		if (paceAvg > paceNextControlStation) {
 			txtVsOutline(176,124, VALUE_FONT, displayPaceAvg, CENTER, Gfx.COLOR_RED, dc, 1);
 		}
 		else {
-			txtVsOutline(176,124, VALUE_FONT, displayPaceAvg, CENTER, Gfx.COLOR_DK_GREEN, dc, 1);
+			txtVsOutline(176,124, VALUE_FONT, displayPaceAvg, CENTER, Gfx.COLOR_BLACK, dc, 1);
 		}
 		
         txtVsOutline(70, 170, VALUE_FONT, distanceEnd, CENTER, Gfx.COLOR_BLACK, dc, 1);
